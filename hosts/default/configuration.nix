@@ -11,7 +11,7 @@
       inputs.home-manager.nixosModules.default
     ];
 
-  # Bootloader.
+  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -138,22 +138,8 @@
     neovim
     _1password
     _1password-gui
+    vscode
   ];
-
-  programs.firefox.enable = true;
-
-  programs._1password.enable = true;
-  programs._1password-gui.enable = true;
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    configure = {
-      customRC = ''
-        luafile ${/etc/nixos/nvim}
-      '';
-    };
-  };
 
 
   # ---------------------------------------------------------------------------

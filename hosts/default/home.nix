@@ -71,6 +71,13 @@
     # EDITOR = "emacs";
   };
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -78,5 +85,12 @@
     enable = true;
     userEmail = "augustin.doultremontao@gmail.com";
     userName = "augustindou";
+  };
+
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      vscodevim.vim
+    ];
   };
 }
