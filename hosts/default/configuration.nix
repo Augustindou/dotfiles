@@ -89,22 +89,34 @@
   services.xserver.autoRepeatDelay = 250;
   services.xserver.autoRepeatInterval = 30;
 
-  # Custom keyboard layout attempt
-  services.xserver.xkb.extraLayouts.mx-keys-mac = {
-      description = "Belgian (mac-like MX Keys)";
-      languages   = [ "eng" ];
-      symbolsFile = /etc/nixos/xkb/symbols/mx-keys-mac;
+  services.xserver.xkb = {
+    # TESTS
+    # extraLayouts.augustindou = {
+    #   description  = "custom mac-like keyboard";
+    #   languages    = [ "eng" ];
+    #   keycodesFile = pkgs.writeText "augustindou-keycodes" ''
+    #     partial xkb_keycodes "augustindou" {
+    #       <AT_KEY> = 94;
+    #     };
+    #   '';
+    #   symbolsFile  = pkgs.writeText "augustindou-symbols" ''
+    #     partial xkb_symbols "augustindou" {
+    #       key <AT_KEY> {[ at, numbersign ]};
+    #     };
+    #   '';
+    # };
+
+    # layout = "augustindou";
+    # variant = "augustindou"; 
+
+    layout = "be";
+    variant = "iso-alternate";
+
   };
 
-  # services.xserver.xkb.layout = "mx-keys-mac"; 
-  # services.xserver.xkb.variant = "mx-keys-mac";
-
-  # Keyboard layout
-  services.xserver.xkb.layout = "be";
-  services.xserver.xkb.variant = "iso-alternate";
-
   # Configure console keymap
-  console.keyMap = "be-latin1";
+  # console.keyMap = "be-latin1";
+  console.useXkbConfig = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;

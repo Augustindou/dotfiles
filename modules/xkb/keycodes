@@ -1,0 +1,17 @@
+xkb_keycodes "custom" {
+  // Character keys
+  <AT_KEY> = 94;
+  <OPEN_PARENTH_KEY> = 14;
+  <CLOSE_PARENTH_KEY> = 20;
+  <DOLLAR_STAR_KEY> = 35;
+  <LETTER_L_KEY> = 46;
+  <BACKTICK_KEY> = 51;
+  <ANGLE_BRACKET_KEY> = 49;
+
+  // Modifier keys
+  <META_LEFT_KEY> = 37;
+  <ALT_LEFT_KEY> = 64;
+  <CONTROL_LEFT_KEY> = 133;
+  <CONTROL_RIGHT_KEY> = 134;
+  <ALT_RIGHT_KEY = 108;
+};
