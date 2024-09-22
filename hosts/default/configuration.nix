@@ -90,28 +90,8 @@
   services.xserver.autoRepeatInterval = 30;
 
   services.xserver.xkb = {
-    # TESTS
-    # extraLayouts.augustindou = {
-    #   description  = "custom mac-like keyboard";
-    #   languages    = [ "eng" ];
-    #   keycodesFile = pkgs.writeText "augustindou-keycodes" ''
-    #     partial xkb_keycodes "augustindou" {
-    #       <AT_KEY> = 94;
-    #     };
-    #   '';
-    #   symbolsFile  = pkgs.writeText "augustindou-symbols" ''
-    #     partial xkb_symbols "augustindou" {
-    #       key <AT_KEY> {[ at, numbersign ]};
-    #     };
-    #   '';
-    # };
-
-    # layout = "augustindou";
-    # variant = "augustindou"; 
-
     layout = "be";
     variant = "iso-alternate";
-
   };
 
   # Configure console keymap
