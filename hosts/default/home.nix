@@ -23,7 +23,8 @@
     allowUnfreePredicate = (_: true);
   };
 
-  # Let Home Manager install and manage itself.
+  # Programs
+
   programs.home-manager.enable = true;
 
   programs.git = {
@@ -51,6 +52,7 @@
       "workbench.activityBar.location" = "hidden";
     };
     keybindings = [
+      # sidebar shortcuts
       { key = "ctrl+shift+b"; command = "workbench.action.toggleActivityBarVisibility"; }
       { key = "ctrl+[IntlBackslash]"; command = "workbench.action.toggleSidebarVisibility"; }
       { key = "ctrl+1"; command = "workbench.view.explorer"; }
@@ -58,6 +60,21 @@
       { key = "ctrl+3"; command = "workbench.scm.focus"; }
       { key = "ctrl+4"; command = "workbench.view.debug"; }
       { key = "ctrl+5"; command = "workbench.view.extensions"; }
+      { key = "alt+1"; command = "workbench.view.explorer"; }
+      { key = "alt+2"; command = "workbench.view.search"; }
+      { key = "alt+3"; command = "workbench.scm.focus"; }
+      { key = "alt+4"; command = "workbench.view.debug"; }
+      { key = "alt+5"; command = "workbench.view.extensions"; }
+      { key = "ctrl+escape"; command = "workbench.action.toggleSidebarVisibility"; }
+      { key = "ctrl+escape"; command = "-workbench.action.chat.cancel"; }
+      # removed keyboard shortcuts
+      { key = "ctrl+p"; command = "-extension.vim_ctrl+p"; }
+      { key = "ctrl+w"; command = "-extension.vim_ctrl+w"; }
+      # format document on ctrl+s
+      { key = "ctrl+s"; command = "editor.action.formatDocument"; when = "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"; }
+      { key = "ctrl+shift+i"; command = "-editor.action.formatDocument"; when = "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"; }
+      { key = "ctrl+s"; command = "-workbench.action.files.save"; }
+      { key = "ctrl+s"; command = "-extension.vim_ctrl+s"; when = "editorTextFocus && vim.active && vim.use<C-s> && !inDebugRepl"; }
     ];
   };
   

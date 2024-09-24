@@ -91,7 +91,7 @@
 
   services.xserver.xkb = {
     layout = "be";
-    variant = "iso-alternate";
+    variant = "nodeadkeys";
   };
 
   # Configure console keymap
@@ -100,6 +100,14 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+
+  services.keyd = {
+    enable = true;
+    keyboards.default = {
+      ids = ["*"];
+      extraConfig = builtins.readFile ./keyd.conf;
+    };
+  };
 
   # ---------------------------------------------------------------------------
   # users
@@ -132,6 +140,7 @@
     _1password
     _1password-gui
     vscode
+    keyd
   ];
 
 
