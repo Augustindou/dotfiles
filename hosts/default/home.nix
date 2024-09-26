@@ -50,6 +50,7 @@
       "window.zoomLevel" = 1;
       "workbench.tree.stickyScrollMaxItemCount" = 5;
       "workbench.activityBar.location" = "hidden";
+      "git.confirmSync" = false;
     };
     keybindings = [
       # sidebar shortcuts
