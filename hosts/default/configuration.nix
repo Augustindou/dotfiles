@@ -7,6 +7,7 @@
   # ---------------------------------------------------------------------------
   imports =
     [
+      ../../general
       ../../modules
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
@@ -23,20 +24,16 @@
     description = "Personal computer";
   };
 
+  kde.enable = true;
   git.enable = true;
   keyboard.enable = true;
   vscode.enable = true;
-  kde.enable = true;
 
   # ---------------------------------------------------------------------------
   # programs (not configured in modules)
   # ---------------------------------------------------------------------------
 
-  home-manager = {
-    users.augustindou.programs.firefox = {
-      enable = true;
-    };
-  };
+  home-manager.users.augustindou.programs.firefox.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
