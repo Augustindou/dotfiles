@@ -1,6 +1,7 @@
-{ ... }: {
+{
     imports =
     [
+        ./desktop-environment
         ./user
         ./generic
         ./git

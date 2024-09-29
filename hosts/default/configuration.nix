@@ -23,22 +23,13 @@
     description = "Personal computer";
   };
 
-  # ---------------------------------------------------------------------------
-  # desktop environment / window manager
-  # ---------------------------------------------------------------------------
-
-  # gnome
-  # services.displayManager.gdm.enable = true;
-  # services.desktopManager.gnome.enable = true;
-
-  # kde
-  services.displayManager.sddm.enable = true;
-  services.displayManager.defaultSession = "plasmax11";
-  services.desktopManager.plasma6.enable = true;
-
+  git.enable = true;
+  keyboard.enable = true;
+  vscode.enable = true;
+  kde.enable = true;
 
   # ---------------------------------------------------------------------------
-  # users
+  # programs (not configured in modules)
   # ---------------------------------------------------------------------------
 
   home-manager = {
@@ -46,14 +37,6 @@
       enable = true;
     };
   };
-
-  git.enable = true;
-  keyboard.enable = true;
-  vscode.enable = true;
-
-  # ---------------------------------------------------------------------------
-  # programs
-  # ---------------------------------------------------------------------------
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -65,17 +48,4 @@
     spotify
     ticktick
   ];
-
-
-  # ---------------------------------------------------------------------------
-  # nix versions & OS config
-  # ---------------------------------------------------------------------------
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; 
 }
