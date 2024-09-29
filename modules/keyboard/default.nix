@@ -6,7 +6,13 @@ in {
         enable = lib.mkEnableOption "Enable keyboard modifications";
     };
 
+    # configured
     config = lib.mkIf cfg.enable {
+        # Keyboard repeat delay & interval
+        services.xserver.autoRepeatDelay = 250;
+        services.xserver.autoRepeatInterval = 30;
+
+        # Keyd remaps
         services.keyd = {
             enable = true;
             keyboards.default = {

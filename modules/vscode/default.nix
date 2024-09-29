@@ -1,13 +1,14 @@
 {lib, config, pkgs, ...}: 
 let 
     cfg = config.vscode;
+    userCfg = config.user;
 in {
     options.vscode = {
         enable = lib.mkEnableOption "Enable vscode & keymappings";
     };
 
     config = lib.mkIf cfg.enable {
-        home-manager.users.augustindou.programs.vscode = {
+        home-manager.users.${userCfg.username}.programs.vscode = {
             enable = true;
             extensions = with pkgs.vscode-extensions; [
                 vscodevim.vim
