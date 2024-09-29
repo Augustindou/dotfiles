@@ -7,6 +7,7 @@
   # ---------------------------------------------------------------------------
   imports =
     [
+      ../../modules
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
     ];
@@ -101,13 +102,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  services.keyd = {
-    enable = true;
-    keyboards.default = {
-      ids = ["*"];
-      extraConfig = builtins.readFile ./keyd.conf;
-    };
-  };
 
   # ---------------------------------------------------------------------------
   # users
@@ -123,10 +117,37 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users = {
-      "augustindou" = import ./home.nix;
+    users.augustindou.home = {
+      username = "augustindou";
+      homeDirectory = "/home/augustindou";
+      stateVersion = "24.05"; # Please read the comment before changing.
+      packages = with pkgs; [ ];
+      file = { };
+      sessionVariables = { };
+    };
+
+    users.augustindou.nixpkgs.config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+
+    # Programs
+
+    users.augustindou.programs.home-manager.enable = true;
+
+    users.augustindou.programs.git = {
+      enable = true;
+      userEmail = "augustin.doultremontao@gmail.com";
+      userName = "augustindou";
+    };
+
+    users.augustindou.programs.firefox = {
+      enable = true;
     };
   };
+
+  keyboard.enable = true;
+  vscode.enable = true;
 
   # ---------------------------------------------------------------------------
   # programs
@@ -139,8 +160,8 @@
     neovim
     _1password
     _1password-gui
-    vscode
-    keyd
+    spotify
+    ticktick
   ];
 
 
@@ -155,5 +176,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; 
-
 }
