@@ -1,4 +1,4 @@
-{config, ...}: 
+{config, pkgs, ...}: 
 let 
     userCfg = config.user;
 in {
@@ -8,11 +8,15 @@ in {
         boot.loader.efi.canTouchEfiVariables = true;
 
         # Enable bluetooth & wifi
-        hardware.bluetooth.enable = true;
-        hardware.bluetooth.powerOnBoot = true;
-        networking.hostName = "${userCfg.username}-nixos"; # Define your hostname.
-        networking.networkmanager.enable = true;
-        networking.wireless.enable = false;  # Enables wireless support via wpa_supplicant.
+        hardware.bluetooth = {
+            enable = true;
+            powerOnBoot = true;
+        };
+        networking = {
+            hostName = "${userCfg.username}-nixos"; # Define your hostname.
+            networkmanager.enable = true;
+            wireless.enable = false; # Enables wireless support via wpa_supplicant.
+        };
 
         # Set your time zone.
         time.timeZone = "Europe/Brussels";
@@ -72,5 +76,10 @@ in {
         # Before changing this value read the documentation for this option
         # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
         system.stateVersion = "24.05"; 
+
+        # important packages
+        environment.systemPackages = with pkgs; [
+            networkmanager
+        ];
     };
 }

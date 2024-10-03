@@ -21,10 +21,13 @@
     username = "augustindou";
     name = "Augustin d'Oultremont";
     email = "augustin.doultremontao@gmail.com";
-    description = "Personal computer";
+    description = "Augustindou @ NixOS";
   };
 
-  kde.enable = true;
+  # destop environment
+  hyprland.enable = true;
+
+  # programs
   git.enable = true;
   keyboard.enable = true;
   vscode.enable = true;
