@@ -1,0 +1,88 @@
+{
+    "adapted from": [
+        "https://git.sr.ht/~oscarcp/ghostfiles/tree/master/item/waybar/config",
+        "https://github.com/dpgraham4401/.dotfiles/tree/fedora/sway/.config/waybar"
+    ],
+    "layer": "top",
+    "position": "top",
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "custom/media",
+        "pulseaudio",
+        "network",
+        "battery",
+        "clock"
+    ],
+    "hyprland/window": {
+        "max-length": 70,
+        "separate-outputs": false
+    },
+    "clock": {
+        "format": "\uf017 {:%H:%M \udb80\udced %a %d/%m/%Y}"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "bat": "BAT1",
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-discharging": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "{icon} {essid}",
+        "format-ethernet": " {ifname}",
+        "format-disconnected": "󰤮",
+        "format-icons": [
+            "󰤯",
+            "󰤟",
+            "󰤢",
+            "󰤥",
+            "󰤨"
+        ],
+        "tooltip": false,
+        "max-length": 20,
+        "on-click": "kitty -e nmtui"
+    },
+    "custom/media": {
+        "format": "{}",
+        "interval": 1,
+        "exec": "$HOME/.config/waybar/get_media.sh"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                ""
+            ]
+        },
+        "scroll-step": 1,
+        "on-click": "pavucontrol"
+    }
+}
