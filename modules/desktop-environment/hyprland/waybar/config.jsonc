@@ -61,11 +61,6 @@
         "max-length": 20,
         "on-click": "kitty -e nmtui"
     },
-    "custom/media": {
-        "format": "{}",
-        "interval": 1,
-        "exec": "$HOME/.config/waybar/get_media.sh"
-    },
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}%",
@@ -83,6 +78,6 @@
             ]
         },
         "scroll-step": 1,
-        "on-click": "pavucontrol"
+        "on-click": "kitty -e bluetuith"
     }
 }

@@ -42,6 +42,7 @@ in {
             wofi # app launcher
             kdePackages.dolphin # file explorer
             waybar # menu bar
+            bluetuith # bluetooth TUI
 
             # screensharing 
             pipewire

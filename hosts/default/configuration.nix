@@ -43,6 +43,7 @@
   environment.systemPackages = with pkgs; [
     firefox
     neovim
+    lazygit
     _1password
     _1password-gui
     spotify
