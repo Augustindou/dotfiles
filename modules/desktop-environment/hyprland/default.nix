@@ -7,8 +7,15 @@ in {
         enable = lib.mkEnableOption "Enable Hyprland desktop environment";
     };
 
+    imports = [
+        ./hyprlock
+    ];
+
     config = lib.mkIf cfg.enable {
         programs.hyprland.enable = true;
+
+        # sub modules
+        hyprlock.enable = true;
 
         home-manager.users.${userCfg.username} = {
             wayland.windowManager.hyprland = {
@@ -43,6 +50,8 @@ in {
             kdePackages.dolphin # file explorer
             waybar # menu bar
             bluetuith # bluetooth TUI
+            hyprshot # screenshots
+            pamixer # audio + / - / mute
 
             # screensharing 
             pipewire

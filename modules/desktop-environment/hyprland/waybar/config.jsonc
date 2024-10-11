@@ -23,7 +23,8 @@
         "separate-outputs": false
     },
     "clock": {
-        "format": "\uf017 {:%H:%M \udb80\udced %a %d/%m/%Y}"
+        "format": "\uf017 {:%H:%M}",
+        "tooltip-format": "\udb80\udced {:%a, %B %d}"
     },
     "battery": {
         "states": {

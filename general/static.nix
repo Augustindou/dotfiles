@@ -33,7 +33,7 @@ in {
             LC_NUMERIC = "fr_BE.UTF-8";
             LC_PAPER = "fr_BE.UTF-8";
             LC_TELEPHONE = "fr_BE.UTF-8";
-            LC_TIME = "fr_BE.UTF-8";
+            LC_TIME = "en_US.UTF-8";
         };
 
         # Enable the X11 windowing system.
