@@ -32,6 +32,9 @@
   keyboard.enable = true;
   vscode.enable = true;
 
+  # terminal
+  lazygit.enable = true;
+
   # ---------------------------------------------------------------------------
   # programs (not configured in modules)
   # ---------------------------------------------------------------------------
@@ -43,7 +46,6 @@
   environment.systemPackages = with pkgs; [
     firefox
     neovim
-    lazygit
     _1password
     _1password-gui
     spotify
