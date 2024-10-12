@@ -8,13 +8,11 @@ in {
     };
 
     config = lib.mkIf cfg.enable {
-        programs.hyprland.enable = true;
-
         home-manager.users.${userCfg.username} = {
             programs.hyprlock = {
                 enable = true;
                 extraConfig = lib.strings.concatStrings [
-                    ("$backgroundPicture = /home/${userCfg.username}/Pictures/wallpaper.jpg")
+                    ("$backgroundPicture = Pictures/wallpaper.jpg")
                     (builtins.readFile ./hyprlock.conf)
                 ];
             };
