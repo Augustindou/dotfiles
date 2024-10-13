@@ -11,7 +11,7 @@ in {
         home-manager.users.${userCfg.username} = {
             programs.waybar = {
                 enable = true;
-                settings.mainBar = lib.importJSON ./config.jsonc;
+                settings.mainBar = lib.importJSON ./config.json;
                 style = builtins.readFile ./style.css;
             };
 

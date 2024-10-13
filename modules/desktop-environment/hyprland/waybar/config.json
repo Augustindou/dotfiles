@@ -1,5 +1,5 @@
 {
-    "adapted from": [
+    "inspired by": [
         "https://git.sr.ht/~oscarcp/ghostfiles/tree/master/item/waybar/config",
         "https://github.com/dpgraham4401/.dotfiles/tree/fedora/sway/.config/waybar"
     ],
@@ -24,7 +24,8 @@
     },
     "clock": {
         "format": "\uf017 {:%H:%M}",
-        "tooltip-format": "\udb80\udced {:%a, %B %d}"
+        "tooltip-format": "\udb80\udced {:%a, %B %d}",
+        "on-click": "swaync-client -t"
     },
     "battery": {
         "states": {
