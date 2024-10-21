@@ -27,6 +27,8 @@ in {
                 "workbench.activityBar.location" = "hidden";
                 "git.confirmSync" = false;
                 "git.autofetch" = true;
+                "editor.fontFamily" = "'Hack Nerd Font', 'Droid Sans Mono', 'monospace', monospace";
+                "terminal.integrated.fontFamily" = "'Hack Nerd Font', 'Droid Sans Mono', 'monospace', monospace";
             };
             keybindings = [
                 # sidebar shortcuts

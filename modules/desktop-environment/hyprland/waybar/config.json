@@ -23,8 +23,8 @@
         "separate-outputs": false
     },
     "clock": {
-        "format": "\uf017 {:%H:%M}",
-        "tooltip-format": "\udb80\udced {:%a, %B %d}",
+        "format": " {:%H:%M}",
+        "tooltip-format": "󰃭 {:%a, %B %d}",
         "on-click": "swaync-client -t"
     },
     "battery": {
@@ -37,7 +37,7 @@
         "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
-        "format-discharging": " {capacity}%",
+        "format-discharging": "{icon} {capacity}%",
         "format-alt": "{icon} {time}",
         "format-icons": [
             "",
@@ -50,7 +50,7 @@
     "network": {
         "format": "{ifname}",
         "format-wifi": "{icon} {essid}",
-        "format-ethernet": " {ifname}",
+        "format-ethernet": " {ifname}",
         "format-disconnected": "󰤮",
         "format-icons": [
             "󰤯",
@@ -66,11 +66,11 @@
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}%",
-        "format-muted": "",
+        "format-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",

@@ -10,6 +10,7 @@ in {
     imports = [
         ./hyprlock
         ./waybar
+        ./swaync
     ];
 
     config = lib.mkIf cfg.enable {
@@ -17,6 +18,7 @@ in {
 
         hyprlock.enable = true;
         waybar.enable = true;
+        swaync.enable = true;
 
         home-manager.users.${userCfg.username} = {
             wayland.windowManager.hyprland = {
@@ -28,10 +30,12 @@ in {
         environment.systemPackages = with pkgs; [
             kitty # terminal
             wofi # app launcher
-            kdePackages.dolphin # file explorer
+            gnome.nautilus # file explorer
             bluetuith # bluetooth TUI
             hyprshot # screenshots
+            obs-studio # record screen
             pamixer # audio + / - / mute
+            vlc # video
 
             # screensharing 
             pipewire
