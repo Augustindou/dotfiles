@@ -11,6 +11,7 @@ in {
         ./hyprlock
         ./waybar
         ./swaync
+        ./wofi
     ];
 
     config = lib.mkIf cfg.enable {
@@ -19,6 +20,7 @@ in {
         hyprlock.enable = true;
         waybar.enable = true;
         swaync.enable = true;
+        wofi.enable = true;
 
         home-manager.users.${userCfg.username} = {
             wayland.windowManager.hyprland = {
@@ -29,7 +31,6 @@ in {
 
         environment.systemPackages = with pkgs; [
             kitty # terminal
-            wofi # app launcher
             gnome.nautilus # file explorer
             bluetuith # bluetooth TUI
             hyprshot # screenshots
