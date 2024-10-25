@@ -1,4 +1,4 @@
-{lib, config, pkgs, ...}: 
+{lib, config, pkgs, inputs, ...}: 
 let 
     userCfg = config.user;
     cfg = config.hyprland;
@@ -37,6 +37,10 @@ in {
             obs-studio # record screen
             pamixer # audio + / - / mute
             vlc # video
+
+            # cursors
+            hyprcursor 
+            inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
 
             # screensharing 
             pipewire

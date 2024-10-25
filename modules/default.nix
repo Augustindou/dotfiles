@@ -6,5 +6,6 @@
         ./keyboard
         ./vscode
         ./terminal
+        ./styling
     ];
 }
