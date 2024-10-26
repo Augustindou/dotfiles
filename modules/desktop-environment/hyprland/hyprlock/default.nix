@@ -11,10 +11,7 @@ in {
         home-manager.users.${userCfg.username} = {
             programs.hyprlock = {
                 enable = true;
-                extraConfig = lib.strings.concatStrings [
-                    ("$backgroundPicture = Pictures/wallpaper.jpg")
-                    (builtins.readFile ./hyprlock.conf)
-                ];
+                extraConfig = builtins.readFile ./hyprlock.conf;
             };
         };
 
