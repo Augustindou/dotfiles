@@ -36,6 +36,7 @@ in {
             hyprshot # screenshots
             obs-studio # record screen
             pamixer # audio + / - / mute
+            playerctl # interact with playing audio
             vlc # video
 
             # cursors

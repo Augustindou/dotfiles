@@ -50,5 +50,6 @@
         spotify
         ticktick
         slack
+        teams-for-linux
     ];
 }
