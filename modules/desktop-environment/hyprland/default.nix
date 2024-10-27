@@ -36,8 +36,9 @@ in {
             hyprshot # screenshots
             obs-studio # record screen
             pamixer # audio + / - / mute
-            playerctl # interact with playing audio
+            playerctl # audio next / previous / pause
             vlc # video
+            udiskie # mount disks automatically
 
             # cursors
             hyprcursor 

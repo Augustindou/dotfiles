@@ -6,6 +6,7 @@
         ./keyboard
         ./vscode
         ./terminal
+        ./nvim
         ./styling
     ];
 }

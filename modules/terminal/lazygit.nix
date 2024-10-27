@@ -1,9 +1,9 @@
 {lib, config, pkgs, ...}: 
 let 
     userCfg = config.user;
-    cfg = config.lazygit;
+    cfg = config.terminal.lazygit;
 in {
-    options.lazygit = {
+    options.terminal.lazygit = {
         enable = lib.mkEnableOption "Enable Hyprland desktop environment";
     };
 
