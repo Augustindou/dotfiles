@@ -17,6 +17,7 @@ in {
                 "files.autoSave" = "afterDelay";
                 "explorer.confirmDelete" = false;
                 "explorer.confirmDragAndDrop" = false;
+                "explorer.confirmPasteNative" = false;
                 "editor.lineNumbers" = "relative";
                 "editor.stickyScroll.enabled" = false;
                 "editor.bracketPairColorization.enabled" = false;

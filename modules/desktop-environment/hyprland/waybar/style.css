@@ -49,7 +49,9 @@ window#waybar {
 #clock,
 #battery,
 #network,
-#pulseaudio {
+#pulseaudio,
+#custom-power,
+#custom-launcher {
     padding: 0 10px;
 }
 

@@ -11,6 +11,7 @@ in {
         ./hyprlock
         ./waybar
         ./swaync
+        ./wlogout
         ./wofi
     ];
 
@@ -20,6 +21,7 @@ in {
         hyprlock.enable = true;
         waybar.enable = true;
         swaync.enable = true;
+        wlogout.enable = true;
         wofi.enable = true;
 
         home-manager.users.${userCfg.username} = {
