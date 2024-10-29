@@ -55,6 +55,11 @@ window#waybar {
     padding: 0 10px;
 }
 
+#custom-power,
+#custom-launcher {
+    margin-right: 5px;
+}
+
 /*-----Indicators----*/
 #pulseaudio.muted {
     color: @red;

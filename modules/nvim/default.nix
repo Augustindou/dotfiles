@@ -11,6 +11,7 @@ in {
         home-manager.users.${userCfg.username} = {
             home.file.".config/nvim" = {
                 source = ./lua-config;
+                recursive = true;
             };
         };
 

@@ -18,6 +18,7 @@ in {
             ripgrep
             fd
             fzf
+            bat
         ];
     };
 }
