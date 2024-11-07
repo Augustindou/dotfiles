@@ -1,7 +1,7 @@
 return {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v4.x",
-    dependencies = {'neovim/nvim-lspconfig', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/nvim-cmp', 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim'},
+    dependencies = { 'neovim/nvim-lspconfig', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/nvim-cmp', 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' },
     config = function()
         vim.opt.signcolumn = 'yes'
 
@@ -44,7 +44,7 @@ return {
                 vim.keymap.set('n', '<F2>', function()
                     vim.lsp.buf.rename()
                 end, opts)
-                vim.keymap.set({'n', 'x'}, '<F3>', function()
+                vim.keymap.set({ 'n', 'x' }, '<F3>', function()
                     vim.lsp.buf.format({
                         async = true
                     })
@@ -65,28 +65,25 @@ return {
             trigger = '<C-Space>'
         })
 
-	local mason = require("mason")
-	mason.setup()
+        local mason = require("mason")
+        mason.setup()
 
-	local mason_lspconfig = require("mason-lspconfig")
-	mason_lspconfig.setup({
-    		ensure_installed = { 'lua_ls', 'rust_analyzer', 'pylsp', 'eslint', 'ts_ls' },
-	})
+        local mason_lspconfig = require("mason-lspconfig")
+        mason_lspconfig.setup({
+            ensure_installed = {
+                'lua_ls', 'rust_analyzer', 'pylsp', 'eslint',
+                'ts_ls', 'angularls'
+            },
+        })
 
         local lsp_config = require('lspconfig')
         lsp_config.lua_ls.setup({
-			settings = {
-				Lua = {
-					diagnostics = {
-						globals = {'vim'},
-					},
-				},
-			},
-		})
+            settings = { Lua = { diagnostics = { globals = { 'vim' }, }, }, },
+        })
         lsp_config.rust_analyzer.setup({})
         lsp_config.pylsp.setup({})
         lsp_config.eslint.setup({})
         lsp_config.ts_ls.setup({})
-
+        lsp_config.angularls.setup({})
     end
 }
