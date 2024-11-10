@@ -43,6 +43,7 @@ return {
         end
 
         require("neo-tree").setup({
+
             default_component_configs = {
                 icon = {
                     folder_closed = "",
@@ -70,6 +71,9 @@ return {
                     ["?"] = "show_help",
                     ["i"] = "show_file_details",
                 }
+            },
+            filesystem = {
+                hijack_netrw_behavior = "open_current",
             },
         })
     end,
