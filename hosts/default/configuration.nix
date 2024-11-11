@@ -33,8 +33,7 @@
     nvim.enable = true;
 
     # terminal
-    terminal.lazygit.enable = true;
-    terminal.trash.enable = true;
+    terminal.enable = true;
 
     # ---------------------------------------------------------------------------
     # programs (not configured in modules)

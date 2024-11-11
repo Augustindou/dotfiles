@@ -4,15 +4,19 @@ let
     cfg = config.terminal;
 in {
     options.terminal = {
-        trash.enable = lib.mkEnableOption "Enable Hyprland desktop environment";
+        enable = lib.mkEnableOption "Enable terminal customizations";
     };
 
     imports =
     [
         ./lazygit.nix
+        ./kitty.nix
     ];
 
-    config = lib.mkIf cfg.trash.enable {
+    config = lib.mkIf cfg.enable {
+        terminal.lazygit.enable = true;
+        terminal.kitty.enable = true;
+
         environment.systemPackages = with pkgs; [
             trashy
             ripgrep

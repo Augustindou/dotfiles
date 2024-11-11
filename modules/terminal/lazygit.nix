@@ -4,12 +4,10 @@ let
     cfg = config.terminal.lazygit;
 in {
     options.terminal.lazygit = {
-        enable = lib.mkEnableOption "Enable Hyprland desktop environment";
+        enable = lib.mkEnableOption "Enable lazygit";
     };
 
     config = lib.mkIf cfg.enable {
-        programs.lazygit.enable = true;
-
         home-manager.users.${userCfg.username} = {
             programs.lazygit.enable = true;
             programs.lazygit.settings = {
