@@ -1,12 +1,12 @@
 {
-    imports =
+  imports =
     [
-        ./desktop-environment
-        ./git
-        ./keyboard
-        ./vscode
-        ./terminal
-        ./nvim
-        ./styling
+      ./desktop-environment
+      ./git
+      ./keyboard
+      ./vscode
+      ./terminal
+      ./nvim
+      ./styling
     ];
 }

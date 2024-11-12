@@ -1,7 +1,7 @@
 {
-    imports =
+  imports =
     [
-        ./kde
-        ./hyprland
+      ./kde
+      ./hyprland
     ];
 }
