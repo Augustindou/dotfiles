@@ -72,10 +72,9 @@ return {
                 },
             },
             filesystem = {
+                follow_current_file = { enabled = true },
+                filtered_items = { visible = true },
                 hijack_netrw_behavior = 'open_current',
-                follow_current_file = {
-                    enabled = true,
-                },
             },
         })
     end,

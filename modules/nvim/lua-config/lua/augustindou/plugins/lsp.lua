@@ -13,7 +13,8 @@ return {
 
         -- Main lsp config: add keymaps --
         local lspconfig_defaults = require('lspconfig').util.default_config
-        local cmp_default_capabilities = require('cmp_nvim_lsp').default_capabilities()
+        local cmp_default_capabilities = require('cmp_nvim_lsp').default_capabilities({ insertReplaceSupport = false })
+
         lspconfig_defaults.capabilities =
             vim.tbl_deep_extend('force', lspconfig_defaults.capabilities, cmp_default_capabilities)
 
@@ -94,7 +95,7 @@ return {
         lsp_config.pylsp.setup({})
         lsp_config.eslint.setup({})
         lsp_config.ts_ls.setup({})
-        lsp_config.angularls.setup({})
+        lsp_config.angularls.setup({ filetypes = { 'ts', 'typescript', 'html' } })
         lsp_config.nil_ls.setup({})
     end,
 }
