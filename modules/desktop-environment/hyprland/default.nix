@@ -10,6 +10,7 @@ in
 
   imports = [
     ./hyprlock
+    ./hyprpaper
     ./waybar
     ./swaync
     ./wlogout
@@ -20,6 +21,7 @@ in
     programs.hyprland.enable = true;
 
     hyprlock.enable = true;
+    hyprpaper.enable = true;
     waybar.enable = true;
     swaync.enable = true;
     wlogout.enable = true;
