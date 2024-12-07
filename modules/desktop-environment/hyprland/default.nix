@@ -27,6 +27,12 @@ in
     wlogout.enable = true;
     wofi.enable = true;
 
+    # autologin to use hyprlock directly afterwards
+    services.displayManager.autoLogin = {
+        enable = true;
+        user = userCfg.username;
+    };
+
     home-manager.users.${userCfg.username} = {
       wayland.windowManager.hyprland = {
         enable = true;

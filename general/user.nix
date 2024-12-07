@@ -33,7 +33,6 @@ in
       isNormalUser = true;
       description = cfg.description;
       extraGroups = [ "networkmanager" "wheel" ];
-      packages = with pkgs; [ ];
     };
 
     home-manager = {
@@ -46,7 +45,6 @@ in
           stateVersion = "24.05";
           file = { };
           sessionVariables = { };
-          packages = with pkgs; [ ];
         };
 
         nixpkgs.config = {
