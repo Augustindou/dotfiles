@@ -13,6 +13,7 @@
   ];
 
   # Enable flakes
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # User
@@ -25,6 +26,7 @@
 
   # destop environment
   hyprland.enable = true;
+  # kde.enable = true;
 
   # programs
   git.enable = true;
@@ -49,5 +51,6 @@
     ticktick
     slack
     teams-for-linux
+    signal-desktop
   ];
 }

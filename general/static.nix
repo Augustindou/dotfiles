@@ -65,7 +65,7 @@ in
     # default keyboard stuff
     services.xserver.xkb = {
       layout = "be";
-      variant = "nodeadkeys";
+      # variant = "nodeadkeys";
     };
 
     console.useXkbConfig = true;
