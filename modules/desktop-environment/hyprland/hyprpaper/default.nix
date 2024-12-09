@@ -18,7 +18,7 @@ in
           preload = [
             "/home/${userCfg.username}/Pictures/wallpaper.jpg"
           ];
-       
+
           wallpaper = [
             ",/home/${userCfg.username}/Pictures/wallpaper.jpg"
           ];

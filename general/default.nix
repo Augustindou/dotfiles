@@ -1,5 +1,5 @@
 {
-    imports =
+  imports =
     [
       ./static.nix
       ./user.nix

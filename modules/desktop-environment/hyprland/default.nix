@@ -29,8 +29,8 @@ in
 
     # autologin to use hyprlock directly afterwards
     services.displayManager.autoLogin = {
-        enable = true;
-        user = userCfg.username;
+      enable = true;
+      user = userCfg.username;
     };
 
     home-manager.users.${userCfg.username} = {
