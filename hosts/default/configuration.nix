@@ -45,7 +45,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     firefox
-    _1password
+    _1password-cli
     _1password-gui
     spotify
     ticktick

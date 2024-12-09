@@ -42,7 +42,7 @@ in
 
     environment.systemPackages = with pkgs; [
       kitty # terminal
-      gnome.nautilus # file explorer
+      nautilus # file explorer
       bluetuith # bluetooth TUI
       hyprshot # screenshots
       obs-studio # record screen
