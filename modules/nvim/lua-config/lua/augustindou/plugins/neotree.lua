@@ -69,6 +69,10 @@ return {
                     ['p'] = 'paste_from_clipboard',
                     ['?'] = 'show_help',
                     ['i'] = 'show_file_details',
+
+                    ['<leader>gA'] = 'git_add_all',
+                    ['<leader>gu'] = 'git_unstage_file',
+                    ['<leader>ga'] = 'git_add_file',
                 },
             },
             filesystem = {
