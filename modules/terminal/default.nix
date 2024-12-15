@@ -18,12 +18,26 @@ in
     terminal.lazygit.enable = true;
     terminal.kitty.enable = true;
 
+    home-manager.users.${userCfg.username} = {
+      home.file.".zshrc" = {
+        source = ./.zshrc;
+      };
+    };
+
+    users.defaultUserShell = pkgs.zsh;
+    programs.zsh.enable = true;
+
     environment.systemPackages = with pkgs; [
-      trashy
-      ripgrep
-      fd
-      fzf
-      bat
+      zsh
+
+      trashy # trash instead of rm
+      ripgrep # rg
+      fd # find
+      fzf # fuzzy find
+      bat # alternative to cat
+      zoxide # alternative to cd
+      eza # alternative to ls
+      starship # custom prompt
     ];
   };
 }

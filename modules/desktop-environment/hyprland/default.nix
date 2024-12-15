@@ -50,6 +50,7 @@ in
       playerctl # audio next / previous / pause
       vlc # video
       udiskie # mount disks automatically
+      wl-clipboard-rs # copy from terminal
 
       # cursors
       hyprcursor
