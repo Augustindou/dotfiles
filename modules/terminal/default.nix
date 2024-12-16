@@ -10,6 +10,7 @@ in
 
   imports =
     [
+      ./zsh
       ./lazygit.nix
       ./kitty.nix
     ];
@@ -17,19 +18,9 @@ in
   config = lib.mkIf cfg.enable {
     terminal.lazygit.enable = true;
     terminal.kitty.enable = true;
-
-    home-manager.users.${userCfg.username} = {
-      home.file.".zshrc" = {
-        source = ./.zshrc;
-      };
-    };
-
-    users.defaultUserShell = pkgs.zsh;
-    programs.zsh.enable = true;
+    terminal.zsh.enable = true;
 
     environment.systemPackages = with pkgs; [
-      zsh
-
       trashy # trash instead of rm
       ripgrep # rg
       fd # find

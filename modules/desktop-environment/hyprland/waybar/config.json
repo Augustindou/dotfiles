@@ -84,7 +84,7 @@
         "on-click": "kitty -e bluetuith"
     },
     "custom/power": {
-      "format": "",
+      "format": "󱄅",
       "on-click": "wlogout -b 2"
     },
     "custom/launcher": {
