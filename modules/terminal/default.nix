@@ -11,6 +11,7 @@ in
   imports =
     [
       ./zsh
+      ./tmux
       ./starship
       ./lazygit.nix
       ./kitty.nix
@@ -21,6 +22,7 @@ in
     terminal.starship.enable = true;
     terminal.kitty.enable = true;
     terminal.zsh.enable = true;
+    terminal.tmux.enable = true;
 
     environment.systemPackages = with pkgs; [
       trashy # trash instead of rm
