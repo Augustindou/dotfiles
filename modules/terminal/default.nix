@@ -11,12 +11,14 @@ in
   imports =
     [
       ./zsh
+      ./starship
       ./lazygit.nix
       ./kitty.nix
     ];
 
   config = lib.mkIf cfg.enable {
     terminal.lazygit.enable = true;
+    terminal.starship.enable = true;
     terminal.kitty.enable = true;
     terminal.zsh.enable = true;
 
@@ -28,7 +30,6 @@ in
       bat # alternative to cat
       zoxide # alternative to cd
       eza # alternative to ls
-      starship # custom prompt
     ];
   };
 }
