@@ -13,7 +13,7 @@ in
       ./zsh
       ./tmux
       ./starship
-      ./lazygit.nix
+      ./lazygit
       ./kitty.nix
     ];
 
