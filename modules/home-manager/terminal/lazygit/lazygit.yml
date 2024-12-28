@@ -1,0 +1,33 @@
+gui:
+  scrollHeight: 5
+  scrollOffMargin: 5
+  theme:
+    optionsTextColor:
+      - default
+  showCommandLog: false
+  nerdFontsVersion: "3"
+  showFileIcons: true
+  commitHashLength: 0
+  statusPanelView: allBranchesLog
+
+git:
+  paging:
+    pager: "diff-so-fancy"
+  mainBranches:
+    - master
+    - main
+    - production
+    - develop
+
+  branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=format:"%Cblue%ad %Cgreen%aN%Cred%d %Creset%s%n" {{branchName}} --
+  allBranchesLogCmd: git log --graph --all --color=always --abbrev-commit --decorate --date=relative --pretty=format:"%Cblue%ad %Cgreen%aN%Cred%d %Creset%s%n"
+
+  commitPrefix:
+    # match branch names like prefix/XM-2321-... and extract XM-2321
+    pattern: "^(?:\\w+\\/)?(\\w+-\\d+).*"
+    replace: "$1 - "
+
+os:
+  editPreset: "nvim"
+
+notARepository: skip

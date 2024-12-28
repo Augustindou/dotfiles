@@ -1,56 +1,48 @@
-{ config, pkgs, inputs, ... }:
-
+{ inputs, ... }:
+let 
+    user = {
+        username = "augustindou";
+        name = "Augustin d'Oultremont";
+        email = "augustin.doultremontao@gmail.com";
+        description = "Augustindou-NixOS-Desktop";
+    };
+in 
 {
+    imports = [
+        ./hardware-configuration.nix
+        ../../modules/nixos
+    ];
 
-  # ---------------------------------------------------------------------------
-  # imports & base config
-  # ---------------------------------------------------------------------------
-  imports = [
-    ../../general
-    ../../modules
-    ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default
-  ];
+    keyboard.macKeyboard.enable = true;
+    hyprland.enable = true;
+    autologin.enable = true;
+    terminal.zsh.enable = true;
 
-  # Enable flakes
+    # ---------------------------------------------------------------------------
+    # User
+    # ---------------------------------------------------------------------------
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    user = user;
 
-  # User
-  user = {
-    username = "augustindou";
-    name = "Augustin d'Oultremont";
-    email = "augustin.doultremontao@gmail.com";
-    description = "Augustindou @ NixOS";
-  };
+    users.users."${user.username}" = {
+        isNormalUser = true;
+        initialPassword = "12345";
+        description = user.description;
+        extraGroups = [ "networkmanager" "wheel" ];
+    };
 
-  # destop environment
-  hyprland.enable = true;
-  # kde.enable = true;
+    # ---------------------------------------------------------------------------
+    # Home-Manager
+    # ---------------------------------------------------------------------------
 
-  # programs
-  git.enable = true;
-  keyboard.enable = true;
-  vscode.enable = true;
-  nvim.enable = true;
+    home-manager = {
+        extraSpecialArgs = { 
+            inherit inputs; 
+            inherit user;
+        };
 
-  # terminal
-  terminal.enable = true;
-
-  # ---------------------------------------------------------------------------
-  # programs (not configured in modules)
-  # ---------------------------------------------------------------------------
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    firefox
-    _1password-cli
-    _1password-gui
-    spotify
-    ticktick
-    slack
-    teams-for-linux
-    signal-desktop
-  ];
+        users = {
+            "${user.username}" = import ./home.nix;
+        };
+    };
 }
