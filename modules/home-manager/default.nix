@@ -3,6 +3,7 @@
     imports = [
         ./hyprland
         ./nvim
+        ./copyq
         ./terminal
         ./vscode
         ./git.nix

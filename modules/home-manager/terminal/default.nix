@@ -22,7 +22,7 @@ in
     terminal.tmux.enable = true;
 
     home.packages = with pkgs; [
-      trashy # trash instead of rm
+      rip2 # rip instead of rm
       ripgrep # rg
       fd # find
       fzf # fuzzy find

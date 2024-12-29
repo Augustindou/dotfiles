@@ -17,6 +17,7 @@
     nvim.enable = true;
     terminal.enable = true;
     vscode.enable = true;
+    copyq.enable = true;
 
     home.packages = with pkgs; [
         firefox
