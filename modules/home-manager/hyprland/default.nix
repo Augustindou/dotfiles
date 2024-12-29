@@ -39,6 +39,7 @@ in
             vlc # video
             udiskie # mount disks automatically
             wl-clipboard-rs # copy from terminal
+            swappy # image viewer & editor
         
             # cursors
             hyprcursor
