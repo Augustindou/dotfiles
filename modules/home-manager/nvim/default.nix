@@ -7,6 +7,9 @@
             source = ./lua-config;
             recursive = true;
         };
+
+        home.file.".vimrc".source = config.lib.file.mkOutOfStoreSymlink 
+            "${config.home.homeDirectory}/.config/nixos-config/modules/home-manager/nvim/.vimrc";
  
         programs.neovim = {
             enable = true;

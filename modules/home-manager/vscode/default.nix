@@ -7,7 +7,7 @@
             enable = true;
            
             extensions = with pkgs.vscode-extensions; [
-                vscodevim.vim
+                asvetliakov.vscode-neovim
             ];
         };
 
