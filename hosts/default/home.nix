@@ -28,5 +28,8 @@
         slack
         teams-for-linux
         signal-desktop
+        zip
+        dotnet-sdk
+        dotnet-ef
     ];
 }
