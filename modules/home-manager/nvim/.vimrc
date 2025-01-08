@@ -26,7 +26,10 @@ set nowrap
 
 " Search
 set nohlsearch
+set smartcase
+set ignorecase
 set incsearch
+set inccommand=split
 
 " Colors
 set termguicolors

@@ -7,7 +7,7 @@ return {
         'MunifTanjim/nui.nvim',
     },
     config = function()
-        vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>')
+        vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle position=right<CR>')
 
         local function expand_or_enter(state)
             local renderer = require('neo-tree.ui.renderer')
@@ -56,11 +56,9 @@ return {
                     ['h'] = collapse_or_move_up,
                     ['<right>'] = expand_or_enter,
                     ['<left>'] = collapse_or_move_up,
-
-                    ['<cr>'] = 'open',
+                    ['<enter>'] = 'open',
                     ['<esc>'] = 'cancel',
-                    ['P'] = { 'toggle_preview', config = { use_float = true, use_image_nvim = true } },
-                    ['s'] = 'open_split',
+                    ['P'] = { 'toggle_preview', config = { use_float = false, use_image_nvim = true } },
                     ['o'] = { 'add', config = { show_path = 'none' } },
                     ['d'] = 'delete',
                     ['r'] = 'rename',
@@ -79,6 +77,14 @@ return {
                 follow_current_file = { enabled = true },
                 filtered_items = { visible = true },
                 hijack_netrw_behavior = 'open_current',
+            },
+            event_handlers = {
+                {
+                    event = 'file_open_requested',
+                    handler = function()
+                        require('neo-tree.command').execute({ action = 'close' })
+                    end,
+                },
             },
         })
     end,

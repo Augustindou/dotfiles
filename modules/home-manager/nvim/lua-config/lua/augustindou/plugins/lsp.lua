@@ -85,7 +85,6 @@ return {
                 'eslint',
                 'ts_ls',
                 'angularls',
-                'nil_ls',
             },
         })
 
@@ -96,6 +95,5 @@ return {
         lsp_config.eslint.setup({})
         lsp_config.ts_ls.setup({})
         lsp_config.angularls.setup({ filetypes = { 'ts', 'typescript', 'html' } })
-        lsp_config.nil_ls.setup({})
     end,
 }
