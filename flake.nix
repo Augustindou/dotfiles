@@ -13,7 +13,19 @@
         catppuccin.url = "github:catppuccin/nix";
     };
 
-    outputs = { self, nixpkgs, ... }@inputs: {
+    outputs = { self, nixpkgs, homeManager, ... }@inputs: {
+        homeConfigurations.archvm = homeManager.lib.homeManagerConfiguration {
+            pkgs = import nixpkgs {
+                system = "x86_64-linux";
+                config = {
+                    allowUnfree = true;
+                };
+            };
+            modules = [
+                ./hosts/archvm/home.nix
+            ];
+        };
+
         nixosConfigurations = {
             default = nixpkgs.lib.nixosSystem {
                 specialArgs = { inherit inputs; };
