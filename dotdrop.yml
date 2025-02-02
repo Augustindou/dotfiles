@@ -1,0 +1,100 @@
+config:
+  backup: true
+  create: true
+  dotpath: config_files
+  keepdot: false
+  link_dotfile_default: absolute
+  link_on_import: nolink
+  longkey: false
+
+dotfiles:
+  # Main programs
+  neovim:
+    dst: ~/.config/nvim
+    src: nvim
+  vim:
+    dst: ~/.vimrc
+    src: vim/vimrc
+  vscode:
+    dst: ~/.config/Code/User
+    src: vscode
+  copyq:
+    dst: ~/.config/copyq/copyq.conf
+    src: copyq/copyq.conf
+  keyd:
+    dst: /etc/keyd
+    src: keyd
+
+  # Shells
+  zsh:
+    dst: ~/.zshrc
+    src: terminal/zsh/zshrc
+
+  # Terminal utilities
+  tmux:
+    dst: ~/.config/tmux/tmux.conf
+    src: terminal/tmux/tmux.conf
+  starship:
+    dst: ~/.config/starship.toml
+    src: terminal/starship/starship.toml
+  lazygit_mac:
+    dst: ~/Library/Application Support/lazygit/config.yml
+    src: terminal/lazygit/lazygit.yml
+  lazygit_linux:
+    dst: ~/.config/lazygit/config.yml
+    src: terminal/lazygit/lazygit.yml
+
+  # Hyprland
+  hyprland:
+    dst: ~/.config/hypr/hyprland.conf
+    src: hyprland/hyprland.conf
+  hyprlock:
+    dst: ~/.config/hypr/hyprlock.conf
+    src: hyprland/hyprlock.conf
+  hyprpaper:
+    dst: ~/.config/hypr/hyprpaper.conf
+    src: hyprland/hyprpaper.conf
+  swaync:
+    dst: ~/.config/swaync
+    src: hyprland/swaync
+  waybar:
+    dst: ~/.config/waybar
+    src: hyprland/waybar
+  wlogout:
+    dst: ~/.config/waylogout
+    src: hyprland/waylogout
+  wofi:
+    dst: ~/.config/wofi
+    src: hyprland/wofi
+
+profiles:
+  base:
+    dotfiles:
+    - neovim
+    - vim
+    - zsh
+    - tmux
+    - starship
+  hyprland:
+    dotfiles:
+    - hyprland
+    - hyprlock
+    - hyprpaper
+    - swaync
+    - waybar
+    - wlogout
+    - wofi
+  mac:
+    include:
+    - base
+    dotfiles:
+    - lazygit_mac
+  linux:
+    include:
+    - base
+    - hyprland
+    dotfiles:
+    - lazygit_linux
+    - copyq
+    - vscode
+    - keyd
