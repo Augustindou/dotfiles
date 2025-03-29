@@ -48,12 +48,12 @@ configure () {
         error "INSTALLER_DIRECTORY not set"; exit 1; 
     fi 
 
-    if [ ! -d $INSTALLER_CONFIG_DESTINATION ] && [ ! -f $INSTALLER_CONFIG_DESTINATION ]; then 
-        mkdir -p $(dirname $INSTALLER_CONFIG_DESTINATION)
-        ln -s $INSTALLER_CONFIG_SOURCE $INSTALLER_CONFIG_DESTINATION
-        success "$(basename $INSTALLER_DIRECTORY) config files symlinked"
+    if [ ! -d "$INSTALLER_CONFIG_DESTINATION" ] && [ ! -f "$INSTALLER_CONFIG_DESTINATION" ]; then 
+        mkdir -p $(dirname "$INSTALLER_CONFIG_DESTINATION")
+        ln -s "$INSTALLER_CONFIG_SOURCE" "$INSTALLER_CONFIG_DESTINATION"
+        success "$(basename "$INSTALLER_DIRECTORY") config files symlinked"
     else 
-        warning "Could not write $(basename $INSTALLER_DIRECTORY) config: Path already exists"
+        warning "Could not write $(basename "$INSTALLER_DIRECTORY") config: Path already exists"
     fi
 }
 
