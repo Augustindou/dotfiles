@@ -1,10 +1,6 @@
-case $OS in
-    Linux)
-        apt install nvim;
-        ;;
-    Mac)
-        brew install nvim;
-        ;;
-esac
+install apt:nvim brew:nvim
 
-ln -s $DOTFILES_PATH/apps/terminal/nvim/config ~/.config/nvim
+INSTALLER_CONFIG_SOURCE=$INSTALLER_DIRECTORY/config
+INSTALLER_CONFIG_DESTINATION=$HOME/.config/nvim
+
+configure

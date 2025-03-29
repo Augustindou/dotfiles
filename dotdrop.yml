@@ -9,15 +9,9 @@ config:
 
 dotfiles:
   # Main programs
-  neovim:
-    dst: ~/.config/nvim
-    src: nvim
   vim:
     dst: ~/.vimrc
     src: vim/vimrc
-  vscode:
-    dst: ~/.config/Code/User
-    src: vscode
   copyq:
     dst: ~/.config/copyq/copyq.conf
     src: copyq/copyq.conf
