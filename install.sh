@@ -3,15 +3,16 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
+# Allow using custom functions
+source ./install-functions.sh
+
 # Set OS env variable for conditions later on
 case "$(uname -s)" in
     Linux*)
         INSTALLER_OS=Linux;
-        BASE_INSTALLER=apt;
         ;;
     Darwin*)
         INSTALLER_OS=Mac;
-        BASE_INSTALLER=brew;
         ;;
     *)
         echo "OS not recognized"; 
@@ -20,8 +21,13 @@ case "$(uname -s)" in
 esac
 
 # Install necessary programs to run the scripts
-if ! git -v >/dev/null; then $BASE_INSTALLER install git; fi 
-if ! fd -V >/dev/null; then $BASE_INSTALLER install fd; fi 
+install apt:git brew:git;
+install apt:fd brew:fd;
+
+if [ "$INSTALLER_OS" = Linux ]; then 
+    install apt:snapd;
+    install apt:cargo;
+fi
 
 # Check existance of this repo and clone if it doesn't exist
 DOTFILES_PATH="$HOME/.config/dotfiles" 
@@ -29,8 +35,6 @@ if [ ! -d $DOTFILES_PATH ]; then
     git clone -q https://github.com/Augustindou/dotfiles.git $DOTFILES_PATH;
 fi
 cd $DOTFILES_PATH;
-
-source ./install-functions.sh
 
 # Install all programs
 for installer in $(fd install.sh apps); do 

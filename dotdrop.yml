@@ -8,11 +8,7 @@ config:
   longkey: false
 
 dotfiles:
-  # Terminal utilities
-  starship:
-    dst: ~/.config/starship.toml
-    src: terminal/starship/starship.toml
-
+    
   # Hyprland
   hyprland:
     dst: ~/.config/hypr/hyprland.conf

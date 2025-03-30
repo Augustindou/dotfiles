@@ -13,9 +13,22 @@ install () {
 
         case $installer in 
             apt)
-                
                 if command -v apt 2>&1 >/dev/null; then 
                     sudo apt install $program_name;
+                    success "Installed $program_name";
+                    return;
+                fi
+                ;;
+            snap)
+                if command -v snap 2>&1 >/dev/null; then
+                    sudo snap install $program_name;
+                    success "Installed $program_name";
+                    return;
+                fi
+                ;;
+            cargo)
+                if command -v cargo 2>&1 >/dev/null; then
+                    cargo install $program_name;
                     success "Installed $program_name";
                     return;
                 fi
@@ -34,6 +47,8 @@ install () {
         esac
     done
 
+    error "No matching package manager found: $@";
+    exit 1;
 }
 
 # Set all three variables and the settings will be symlinked
