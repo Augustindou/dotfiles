@@ -25,6 +25,9 @@ install apt:git brew:git;
 install apt:fd-find brew:fd;
 
 if [ "$INSTALLER_OS" = Linux ]; then 
+    if command -v fd 2>&1 >/dev/null; then 
+        ln -s $(which fdfind) $HOME/.local/bin/fd
+    fi
     install apt:snapd;
     install apt:cargo;
 fi
