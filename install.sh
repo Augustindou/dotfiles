@@ -27,6 +27,7 @@ install apt:fd-find brew:fd;
 if [ "$INSTALLER_OS" = Linux ]; then 
     if ! command -v fd 2>&1 >/dev/null; then 
         FD_PATH="$HOME/.local/bin/fd"
+        export PATH="$FD_PATH:$PATH"
         mkdir -p $(dirname "$FD_PATH")
         ln -s $(which fdfind) "$FD_PATH"
     fi
