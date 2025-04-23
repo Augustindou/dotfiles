@@ -27,7 +27,7 @@ install apt:fd-find brew:fd;
 if [ "$INSTALLER_OS" = Linux ]; then 
     if ! command -v fd 2>&1 >/dev/null; then 
         FD_PATH="/bin/fd"
-        ln -s $(which fdfind) "$FD_PATH"
+        sudo ln -s $(which fdfind) "$FD_PATH"
     fi
     install apt:snapd;
     install apt:cargo;
