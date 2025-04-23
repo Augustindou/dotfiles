@@ -1,0 +1,6 @@
+[Unit]
+Description=key remapping daemon
+
+[Service]
+Type=simple
+ExecStart=keyd

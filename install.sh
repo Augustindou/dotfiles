@@ -22,12 +22,17 @@ esac
 
 # Install necessary programs to run the scripts
 install apt:git brew:git;
-install apt:fd brew:fd;
 
 if [ "$INSTALLER_OS" = Linux ]; then 
-    install apt:snapd;
-    install apt:cargo;
+    install apt:curl
+
+    # install nix if it's not installed
+    if ! command -v nix-env 2>&1 >/dev/null; then
+        sh <(curl -L https://nixos.org/nix/install) --daemon
+    fi
 fi
+
+install nix:fd brew:fd;
 
 # Check existance of this repo and clone if it doesn't exist
 DOTFILES_PATH="$HOME/.config/dotfiles" 
@@ -39,5 +44,6 @@ cd $DOTFILES_PATH;
 # Install all programs
 for installer in $(fd install.sh apps); do 
     INSTALLER_DIRECTORY=$PWD/$(dirname $installer);
+    info "Running installer located at $INSTALLER_DIRECTORY";
     source $installer; 
 done

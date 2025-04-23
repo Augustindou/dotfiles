@@ -1,0 +1,44 @@
+# case insensitive autocompletion
+zstyle ':completion:*' completer _complete
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' '+l:|=* r:|=*'
+zstyle ':completion:*' menu yes select
+
+zmodload zsh/complist
+autoload -Uz compinit
+compinit
+
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+# avoid exiting on ctrl+D
+set -o ignoreeof
+
+bindkey -v
+bindkey '^R' history-incremental-search-backward
+
+# set aliases only if aliased commands exist
+if command -v z 2>&1 >/dev/null; then 
+    alias cd="z"
+    alias zz="z -"
+fi
+
+if command -v eza 2>&1 >/dev/null; then 
+    alias ls="eza"
+    alias tree="eza --tree"
+fi
+
+if command -v bat 2>&1 >/dev/null; then 
+    alias cat="bat --paging=never"
+fi
+
+if command -v fzf 2>&1 >/dev/null; then 
+    alias fzf="fzf --height 40% --preview 'bat --color=always --style=numbers --line-range=:500 {}' | tee >(pbcopy)"
+fi
+
+if command -v rip 2>&1 >/dev/null; then 
+    alias trash="rip"
+fi
+
+if command -v lazygit 2>&1 >/dev/null; then 
+    alias lg="lazygit"
+fi

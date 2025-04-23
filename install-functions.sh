@@ -6,37 +6,34 @@ install () {
         exit 1; 
     fi 
 
-    for arg in "$@"
+    for installer_option in "$@"
     do
-        local installer=${arg%\:*}
-        local program_name=${arg#*\:}
+        local parts=($(echo $installer_option | tr ':' "\n"))
+
+        local installer=${parts[0]}
+        local program_name=${parts[1]}
+        local arg=${parts[2]}
 
         case $installer in 
             apt)
                 if command -v apt 2>&1 >/dev/null; then 
-                    sudo apt install $program_name;
-                    success "Installed $program_name";
-                    return;
-                fi
-                ;;
-            snap)
-                if command -v snap 2>&1 >/dev/null; then
-                    sudo snap install $program_name;
-                    success "Installed $program_name";
-                    return;
-                fi
-                ;;
-            cargo)
-                if command -v cargo 2>&1 >/dev/null; then
-                    cargo install $program_name;
+                    sudo apt install -y $arg $program_name;
                     success "Installed $program_name";
                     return;
                 fi
                 ;;
             brew)
                 if command -v brew 2>&1 >/dev/null; then
-                    brew install $program_name;
+                    brew install $arg $program_name;
                     success "Installed $program_name";
+                    return;
+                fi
+                ;;
+            nix)
+                if command -v nix-env 2>&1 >/dev/null; then
+                    export NIXPKGS_ALLOW_UNFREE=1
+                    nix-env -iA $arg nixpkgs.$program_name
+                    success "Installed $program_name"
                     return;
                 fi
                 ;;
@@ -64,8 +61,8 @@ configure () {
     fi 
 
     if [ ! -d "$INSTALLER_CONFIG_DESTINATION" ] && [ ! -f "$INSTALLER_CONFIG_DESTINATION" ]; then 
-        mkdir -p $(dirname "$INSTALLER_CONFIG_DESTINATION")
-        ln -s "$INSTALLER_CONFIG_SOURCE" "$INSTALLER_CONFIG_DESTINATION"
+        sudo mkdir -p $(dirname "$INSTALLER_CONFIG_DESTINATION")
+        sudo ln -s "$INSTALLER_CONFIG_SOURCE" "$INSTALLER_CONFIG_DESTINATION"
         success "$(basename "$INSTALLER_DIRECTORY") config files symlinked"
     else 
         warning "Could not write $(basename "$INSTALLER_DIRECTORY") config: Path already exists"

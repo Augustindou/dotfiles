@@ -1,4 +1,4 @@
-install snap:starship brew:starship
+install nix:starship brew:starship
 
 INSTALLER_CONFIG_SOURCE=$INSTALLER_DIRECTORY/starship.toml
 INSTALLER_CONFIG_DESTINATION=$HOME/.config/starship.toml
