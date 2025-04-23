@@ -22,7 +22,7 @@ esac
 
 # Install necessary programs to run the scripts
 install apt:git brew:git;
-install apt:fd brew:fd;
+install apt:fd-find brew:fd;
 
 if [ "$INSTALLER_OS" = Linux ]; then 
     install apt:snapd;
