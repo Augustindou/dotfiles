@@ -67,7 +67,7 @@ configure () {
     fi 
 
     if [ ! -d "$INSTALLER_CONFIG_DESTINATION" ] && [ ! -f "$INSTALLER_CONFIG_DESTINATION" ]; then 
-        mkdir -p $(dirname "$INSTALLER_CONFIG_DESTINATION")
+        sudo mkdir -p $(dirname "$INSTALLER_CONFIG_DESTINATION")
         ln -s "$INSTALLER_CONFIG_SOURCE" "$INSTALLER_CONFIG_DESTINATION"
         success "$(basename "$INSTALLER_DIRECTORY") config files symlinked"
     else 
