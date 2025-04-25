@@ -6,36 +6,39 @@ install () {
         exit 1; 
     fi 
 
-    for arg in "$@"
+    for installer_option in "$@"
     do
-        local installer=${arg%\:*}
-        local program_name=${arg#*\:}
+        local parts=$(echo $installer_option | tr ":" "\n")
+
+        local installer=${parts[0]}
+        local program_name=${parts[1]}
+        local arg=${parts[2]}
 
         case $installer in 
             apt)
                 if command -v apt 2>&1 >/dev/null; then 
-                    sudo apt install $program_name;
+                    sudo apt install $arg $program_name;
                     success "Installed $program_name";
                     return;
                 fi
                 ;;
             snap)
                 if command -v snap 2>&1 >/dev/null; then
-                    sudo snap install $program_name;
+                    sudo snap install $arg $program_name;
                     success "Installed $program_name";
                     return;
                 fi
                 ;;
             cargo)
                 if command -v cargo 2>&1 >/dev/null; then
-                    cargo install $program_name;
+                    cargo install $arg $program_name;
                     success "Installed $program_name";
                     return;
                 fi
                 ;;
             brew)
                 if command -v brew 2>&1 >/dev/null; then
-                    brew install $program_name;
+                    brew install $arg $program_name;
                     success "Installed $program_name";
                     return;
                 fi
