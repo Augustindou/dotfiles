@@ -8,7 +8,7 @@ install () {
 
     for installer_option in "$@"
     do
-        local parts=$(echo $installer_option | tr ":" "\n")
+        local parts=($(echo $installer_option | tr ':' "\n"))
 
         local installer=${parts[0]}
         local program_name=${parts[1]}
