@@ -1,4 +1,4 @@
-install apt:nvim brew:nvim
+install apt:neovim brew:neovim
 
 INSTALLER_CONFIG_SOURCE=$INSTALLER_DIRECTORY/config
 INSTALLER_CONFIG_DESTINATION=$HOME/.config/nvim
