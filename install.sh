@@ -29,6 +29,10 @@ if [ "$INSTALLER_OS" = Linux ]; then
         FD_PATH="/bin/fd"
         sudo ln -s $(which fdfind) "$FD_PATH"
     fi
+
+    install apt:curl
+    install apt:tar
+
     install apt:snapd;
     install apt:cargo;
 fi
