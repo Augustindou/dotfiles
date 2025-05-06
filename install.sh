@@ -43,5 +43,6 @@ cd $DOTFILES_PATH;
 # Install all programs
 for installer in $(fd install.sh apps); do 
     INSTALLER_DIRECTORY=$PWD/$(dirname $installer);
+    info "Running installer located at $INSTALLER_DIRECTORY";
     source $installer; 
 done
