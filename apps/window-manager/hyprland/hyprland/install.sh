@@ -4,9 +4,13 @@ if [ "$INSTALLER_OS" = Linux ]; then
 
     CURRENT_PWD=$PWD
 
-    git clone -b 24.04 --depth 1 https://github.com/JaKooLit/Ubuntu-Hyprland.git ~/.config/Ubuntu-Hyprland-24.04
+    UBUNTU_HYPRLAND_FOLDER=$HOME/Ubuntu-Hyprland-24.04
 
-    cd ~/Ubuntu-Hyprland-24.04
+    if [ ! -d "$UBUNTU_HYPRLAND_FOLDER" ] then
+        git clone -b 24.04 --depth 1 https://github.com/JaKooLit/Ubuntu-Hyprland.git $UBUNTU_HYPRLAND_FOLDER
+    fi
+
+    cd $UBUNTU_HYPRLAND_FOLDER
     chmod +x install.sh
     ./install.sh
 
