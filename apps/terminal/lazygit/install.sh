@@ -8,6 +8,9 @@ case "$INSTALLER_OS" in
         tar xf lazygit.tar.gz lazygit
         sudo install lazygit -D -t /usr/local/bin/
 
+        rm lazygit.tar.gz
+        rm lazygit
+
         # Ubuntu 25.10 and later
         # sudo apt install lazygit
 
