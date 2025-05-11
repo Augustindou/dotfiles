@@ -43,6 +43,12 @@ install () {
                     return;
                 fi
                 ;;
+            nix)
+                if command -v nix-env 2>&1 >/dev/null; then
+                    nix-env -iA $arg nixpkgs.$program_name
+                    success "Installed $program_name"
+                    return;
+                fi
             *) 
                 error "Unknown installer: $installer";
                 exit 1;
