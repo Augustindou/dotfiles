@@ -31,7 +31,7 @@ if [ "$INSTALLER_OS" = Linux ]; then
     fi
 
     # install nix if it's not installed
-    if ! command -v nix- 2>&1 >/dev/null; then
+    if ! command -v nix-env 2>&1 >/dev/null; then
         sh <(curl -L https://nixos.org/nix/install) --daemon
     fi
 

@@ -6,7 +6,7 @@ fi
 
 install apt:zoxide brew:zoxide;
 install apt:eza brew:eza;
-install apt:bat brew:bat;
+install nix:bat brew:bat;
 install apt:fzf brew:fzf;
 # install brew:rip2 cargo:rip2;
 install apt:ripgrep brew:ripgrep;
