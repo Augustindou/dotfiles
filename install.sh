@@ -22,14 +22,8 @@ esac
 
 # Install necessary programs to run the scripts
 install apt:git brew:git;
-install apt:fd-find brew:fd;
 
 if [ "$INSTALLER_OS" = Linux ]; then 
-    if ! command -v fd 2>&1 >/dev/null; then 
-        FD_PATH="/bin/fd"
-        sudo ln -s $(which fdfind) "$FD_PATH"
-    fi
-
     # install nix if it's not installed
     if ! command -v nix-env 2>&1 >/dev/null; then
         sh <(curl -L https://nixos.org/nix/install) --daemon
@@ -41,6 +35,8 @@ if [ "$INSTALLER_OS" = Linux ]; then
     install apt:snapd;
     install apt:cargo;
 fi
+
+install nix:fd brew:fd;
 
 # Check existance of this repo and clone if it doesn't exist
 DOTFILES_PATH="$HOME/.config/dotfiles" 
