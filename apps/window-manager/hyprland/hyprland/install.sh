@@ -8,8 +8,8 @@ if [ "$INSTALLER_OS" = Linux ]; then
     configure
 
     # add hyprland desktop entry
-    INSTALLER_CONFIG_SOURCE=$INSTALLER_DIRECTORY/hyprland.desktop
-    INSTALLER_CONFIG_DESTINATION=/usr/share/wayland-sessions/hyprland.desktop
-    
-    configure
+    # INSTALLER_CONFIG_SOURCE=$INSTALLER_DIRECTORY/hyprland.desktop
+    # INSTALLER_CONFIG_DESTINATION=/usr/share/wayland-sessions/hyprland.desktop
+    # 
+    # configure
 fi
