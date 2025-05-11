@@ -22,20 +22,6 @@ install () {
                     return;
                 fi
                 ;;
-            snap)
-                if command -v snap 2>&1 >/dev/null; then
-                    sudo snap install $arg $program_name;
-                    success "Installed $program_name";
-                    return;
-                fi
-                ;;
-            cargo)
-                if command -v cargo 2>&1 >/dev/null; then
-                    cargo install $arg $program_name;
-                    success "Installed $program_name";
-                    return;
-                fi
-                ;;
             brew)
                 if command -v brew 2>&1 >/dev/null; then
                     brew install $arg $program_name;
