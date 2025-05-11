@@ -49,6 +49,7 @@ install () {
                     success "Installed $program_name"
                     return;
                 fi
+                ;;
             *) 
                 error "Unknown installer: $installer";
                 exit 1;
