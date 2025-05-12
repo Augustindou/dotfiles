@@ -1,5 +1,8 @@
 if [ "$INSTALLER_OS" = Linux ]; then 
-    install nix:keyd
+    sudo add-apt-repository ppa:keyd-team/ppa
+    sudo apt update
+
+    install apt:keyd
 
     INSTALLER_CONFIG_SOURCE=$INSTALLER_DIRECTORY/keyboard.conf
     INSTALLER_CONFIG_DESTINATION=/etc/keyd/default.conf
