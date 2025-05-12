@@ -17,7 +17,7 @@ install () {
         case $installer in 
             apt)
                 if command -v apt 2>&1 >/dev/null; then 
-                    sudo apt install $arg $program_name;
+                    sudo apt install -y $arg $program_name;
                     success "Installed $program_name";
                     return;
                 fi
