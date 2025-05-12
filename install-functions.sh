@@ -31,6 +31,7 @@ install () {
                 ;;
             nix)
                 if command -v nix-env 2>&1 >/dev/null; then
+                    NIXPKGS_ALLOW_UNFREE=1
                     nix-env -iA $arg nixpkgs.$program_name
                     success "Installed $program_name"
                     return;
