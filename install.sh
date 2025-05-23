@@ -21,10 +21,11 @@ case "$(uname -s)" in
 esac
 
 # Install necessary programs to run the scripts
-install apt:git brew:git;
-
 if [ "$INSTALLER_OS" = Linux ]; then 
-    install apt:curl
+
+    if ! command -v curl 2>&1 >/dev/null; then
+        install apt:curl
+    fi
 
     # install nix if it's not installed
     if ! command -v nix-env 2>&1 >/dev/null; then
@@ -32,6 +33,7 @@ if [ "$INSTALLER_OS" = Linux ]; then
     fi
 fi
 
+install nix:git brew:git;
 install nix:fd brew:fd;
 
 # Check existance of this repo and clone if it doesn't exist

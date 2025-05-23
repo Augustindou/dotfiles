@@ -1,5 +1,3 @@
-
-# Use this as `install apt:vscode brew:visual-studio-code`
 install () {
     if [ -z "${INSTALLER_OS}" ]; then 
         error "INSTALLER_OS not set"; 
