@@ -1,19 +1,11 @@
-case "$INSTALLER_OS" in
-    Linux)
-        INSTALLER_CONFIG_SOURCE=$INSTALLER_DIRECTORY/bashrc
-        INSTALLER_CONFIG_DESTINATION=$HOME/.bashrc
-        ;;
+# Bash
+INSTALLER_CONFIG_SOURCE=$INSTALLER_DIRECTORY/bashrc
+INSTALLER_CONFIG_DESTINATION=$HOME/.bashrc
 
-    Mac)
-        INSTALLER_CONFIG_SOURCE=$INSTALLER_DIRECTORY/zshrc
-        INSTALLER_CONFIG_DESTINATION=$HOME/.zshrc
-        ;;
+configure
 
-    *)
-        error "Unknown OS"; 
-        exit 1;
-        ;;
-esac
-
+# Zsh
+INSTALLER_CONFIG_SOURCE=$INSTALLER_DIRECTORY/zshrc
+INSTALLER_CONFIG_DESTINATION=$HOME/.zshrc
 
 configure
