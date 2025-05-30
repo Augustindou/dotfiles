@@ -1,5 +1,5 @@
 if [ "$INSTALLER_OS" = Linux ]; then 
-    install nix:hyprland
+    install pacman:hyprland
 
     # install hyprland dotfiles
     INSTALLER_CONFIG_SOURCE=$INSTALLER_DIRECTORY/hyprland.conf
@@ -7,6 +7,8 @@ if [ "$INSTALLER_OS" = Linux ]; then
     
     configure
 
+    install pacman:noto-fonts
+
     # add hyprland desktop entry
-    sudo cp "$INSTALLER_DIRECTORY/hyprland.desktop" "/usr/share/xsessions/hyprland.desktop"
+    # sudo cp "$INSTALLER_DIRECTORY/hyprland.desktop" "/usr/share/xsessions/hyprland.desktop"
 fi

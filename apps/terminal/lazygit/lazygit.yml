@@ -18,7 +18,8 @@ git:
     - production
     - develop
   branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=format:"%Cblue%ad %Cgreen%aN%Cred%d %Creset%s%n" {{branchName}} --
-  allBranchesLogCmd: git log --graph --all --color=always --abbrev-commit --decorate --date=relative --pretty=format:"%Cblue%ad %Cgreen%aN%Cred%d %Creset%s%n"
+  allBranchesLogCmds:
+    - git log --graph --all --color=always --abbrev-commit --decorate --date=relative --pretty=format:"%Cblue%ad %Cgreen%aN%Cred%d %Creset%s%n"
   commitPrefix:
     - # match branch names like prefix/XM-2321-... and extract XM-2321
       pattern: "^(?:\\w+\\/)?(\\w+-\\d+).*"

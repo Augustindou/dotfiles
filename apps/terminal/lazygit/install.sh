@@ -1,6 +1,7 @@
 INSTALLER_CONFIG_SOURCE=$INSTALLER_DIRECTORY/lazygit.yml
 
 install nix:lazygit brew:lazygit
+install nix:diff-so-fancy brew:diff-so-fancy
 
 case "$INSTALLER_OS" in
     Linux)

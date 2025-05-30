@@ -35,6 +35,13 @@ install () {
                     return;
                 fi
                 ;;
+            pacman)
+                if command -v pacman 2>&1 >/dev/null; then
+                    sudo pacman -Sy --noconfirm --needed $program_name
+                    success "Installed $program_name"
+                    return;
+                fi
+                ;;
             *) 
                 error "Unknown installer: $installer";
                 exit 1;
