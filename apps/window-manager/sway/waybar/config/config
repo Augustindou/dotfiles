@@ -7,10 +7,10 @@
     "position": "top",
     "modules-left": [
         "custom/power",
-        "hyprland/workspaces"
+        "sway/workspaces"
     ],
     "modules-center": [
-        "hyprland/window"
+        "sway/window"
     ],
     "modules-right": [
         "pulseaudio",
@@ -19,7 +19,7 @@
         "custom/launcher",
         "clock"
     ],
-    "hyprland/window": {
+    "sway/window": {
         "max-length": 70,
         "separate-outputs": false
     },
@@ -62,7 +62,7 @@
         ],
         "tooltip": false,
         "max-length": 20,
-        "on-click": "kitty -e nmtui"
+        "on-click": "alacritty -e nmtui"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -81,14 +81,14 @@
             ]
         },
         "scroll-step": 1,
-        "on-click": "kitty -e bluetuith"
+        "on-click": "alacritty -e bluetuith"
     },
     "custom/power": {
-      "format": "󱄅",
+      "format": "",
       "on-click": "wlogout -b 2"
     },
     "custom/launcher": {
       "format": "",
-      "on-click": "wofi --show"
+      "on-click": "wofi --show drun"
     }
 }

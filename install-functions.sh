@@ -71,7 +71,7 @@ configure () {
     if [ ! -d "$INSTALLER_CONFIG_DESTINATION" ] && [ ! -f "$INSTALLER_CONFIG_DESTINATION" ]; then 
         mkdir -p $(dirname "$INSTALLER_CONFIG_DESTINATION")
 
-        if [ $1 = copy ]; then 
+        if [ "$1" = copy ]; then 
             sudo cp "$INSTALLER_CONFIG_SOURCE" "$INSTALLER_CONFIG_DESTINATION"
         else 
             sudo ln -s "$INSTALLER_CONFIG_SOURCE" "$INSTALLER_CONFIG_DESTINATION"

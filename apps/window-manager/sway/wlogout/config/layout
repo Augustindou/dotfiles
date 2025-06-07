@@ -1,7 +1,7 @@
 [
     {
         "label": "lock",
-        "action": "hyprlock",
+        "action": "swaylock -f -c 000000",
         "text": "Lock",
         "keybind": "l"
     },
@@ -19,7 +19,7 @@
     },
     {
         "label": "suspend",
-        "action": "hyprlock & systemctl suspend",
+        "action": "swaylock -f -c 000000 & systemctl suspend",
         "text": "Suspend",
         "keybind": "u"
     }
