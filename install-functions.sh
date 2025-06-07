@@ -55,19 +55,28 @@ install () {
 
 # Set all three variables and the settings will be symlinked
 configure () {
+
     if [ -z "${INSTALLER_CONFIG_SOURCE}" ]; then 
         error "INSTALLER_CONFIG_SOURCE not set"; exit 1; 
     fi 
+
     if [ -z "${INSTALLER_CONFIG_DESTINATION}" ]; then 
         error "INSTALLER_CONFIG_DESTINATION not set"; exit 1; 
     fi 
+
     if [ -z "${INSTALLER_DIRECTORY}" ]; then 
         error "INSTALLER_DIRECTORY not set"; exit 1; 
     fi 
 
     if [ ! -d "$INSTALLER_CONFIG_DESTINATION" ] && [ ! -f "$INSTALLER_CONFIG_DESTINATION" ]; then 
-        sudo mkdir -p $(dirname "$INSTALLER_CONFIG_DESTINATION")
-        sudo ln -s "$INSTALLER_CONFIG_SOURCE" "$INSTALLER_CONFIG_DESTINATION"
+        mkdir -p $(dirname "$INSTALLER_CONFIG_DESTINATION")
+
+        if [ $1 = copy ]; then 
+            sudo cp "$INSTALLER_CONFIG_SOURCE" "$INSTALLER_CONFIG_DESTINATION"
+        else 
+            sudo ln -s "$INSTALLER_CONFIG_SOURCE" "$INSTALLER_CONFIG_DESTINATION"
+        fi
+
         success "$(basename "$INSTALLER_DIRECTORY") config files symlinked"
     else 
         warning "Could not write $(basename "$INSTALLER_DIRECTORY") config: Path already exists"

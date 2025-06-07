@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Sway
+Comment=Sway window manager
+Exec=sway
+Type=Application 
