@@ -10,9 +10,13 @@ exec swaymsg -t get_inputs
     set $menu wofi --show
 
     include /etc/sway/config-vars.d/*
+
 # 
 # System
 # 
+
+    # displays
+    output WL-1 resolution 3840x2160 position 3840,0
 
     # idle config
     exec swayidle -w \
