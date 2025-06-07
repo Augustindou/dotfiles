@@ -1,5 +1,6 @@
 exec swaymsg -t get_outputs
 exec swaymsg -t get_inputs
+exec wofi --show drun
 
 # 
 # Variables
@@ -7,7 +8,7 @@ exec swaymsg -t get_inputs
     
     set $terminal alacritty
     set $fileManager dolphin
-    set $menu wofi --show
+    set $menu wofi --show drun
 
     include /etc/sway/config-vars.d/*
 
@@ -16,7 +17,12 @@ exec swaymsg -t get_inputs
 # 
 
     # displays
-    output WL-1 resolution 3840x2160 position 3840,0
+    output WL-1 resolution 3840x2160@60 Hz position 3840,0
+
+    # keyboard input
+    input type:keyboard {
+        xkb_layout be
+    }
 
     # idle config
     exec swayidle -w \
