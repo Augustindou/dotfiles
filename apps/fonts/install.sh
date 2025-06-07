@@ -4,22 +4,6 @@
 # https://gist.github.com/matthewjberger/7dd7e079f282f8138a9dc3b045ebefa0?permalink_comment_id=4005789#gistcomment-4005789
 
 declare -a fonts=(
-    BitstreamVeraSansMono
-    CodeNewRoman
-    DroidSansMono
-    FiraCode
-    FiraMono
-    Go-Mono
-    Hack
-    Hermit
-    JetBrainsMono
-    Meslo
-    Noto
-    Overpass
-    ProggyClean
-    RobotoMono
-    SourceCodePro
-    SpaceMono
     Ubuntu
     UbuntuMono
 )
@@ -32,12 +16,14 @@ if [[ ! -d "$fonts_dir" ]]; then
 fi
 
 for font in "${fonts[@]}"; do
-    zip_file="${font}.zip"
-    download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
-    echo "Downloading $download_url"
-    wget "$download_url"
-    unzip "$zip_file" -d "$fonts_dir"
-    rm "$zip_file"
+    if (fc-list | rg "$font Nerd Font") then 
+        zip_file="${font}.zip"
+        download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
+        echo "Downloading $download_url"
+        wget "$download_url"
+        unzip "$zip_file" -d "$fonts_dir"
+        rm "$zip_file"
+    fi 
 done
 
 find "$fonts_dir" -name '*Windows Compatible*' -delete
