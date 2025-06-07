@@ -32,4 +32,4 @@ done
 
 find "$fonts_dir" -name '*Windows Compatible*' -delete
 
-fc-cache -fv
+fc-cache -fv >/dev/null
