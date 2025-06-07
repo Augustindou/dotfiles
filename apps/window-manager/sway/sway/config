@@ -160,7 +160,13 @@
 # Waybar
 #
 
-bar {
-    swaybar_command waybar
-    position top
-}
+    bar {
+        swaybar_command waybar
+        position top
+    }
+
+#
+# Other
+#
+
+include /etc/sway/config.d/*
