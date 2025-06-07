@@ -1,7 +1,7 @@
 if [ "$INSTALLER_OS" = Linux ]; then 
     install apt:sway
     install nix:alacritty
-    install nix:dolphin
+    install nix:kdePackages.dolphin
     install nix:swappy
     install nix:grim
     install nix:slurp
