@@ -8,6 +8,7 @@ if [ "$INSTALLER_OS" = Linux ]; then
     install nix:pamixer
     install nix:playerctl
     install nix:brightnessctl
+    install nix:swayidle
 
     # install dotfiles
     INSTALLER_CONFIG_SOURCE=$INSTALLER_DIRECTORY/config
