@@ -55,10 +55,10 @@ style = "bg:surface0 fg:text"
 format = "[ $symbol]($style)"
  
 [os.symbols]
-Linux = "󰌽"
+Linux = ""
 Macos = ""
-Windows = "󰍲"
-Ubuntu = "󰕈"
+Windows = ""
+Ubuntu = ""
 NixOS = ''
 
 [fill]
@@ -77,7 +77,7 @@ truncation_length = 3
 truncation_symbol = "../"
  
 [git_branch]
-symbol = ""
+symbol = ""
 style = "bg:teal"
 format = "[](bg:green fg:mantle)[[ $symbol $branch ](fg:base bg:green)]($style)"
  
@@ -113,16 +113,16 @@ format = '[](bg:teal fg:mantle)[[ $symbol( $version) ](fg:base bg:teal)]($sty
 disabled = false
 time_format = "%R"
 style = "bg:peach"
-format = '[[  $time ](fg:mantle bg:purple)]($style)'
+format = '[[  $time ](fg:mantle bg:purple)]($style)'
  
 [line_break]
 disabled = false
  
 [character]
 disabled = false
-success_symbol = '[](bold fg:green)'
-error_symbol = '[](bold fg:red)'
-vimcmd_symbol = '[](bold fg:creen)'
-vimcmd_replace_one_symbol = '[](bold fg:purple)'
-vimcmd_replace_symbol = '[](bold fg:purple)'
-vimcmd_visual_symbol = '[](bold fg:lavender)'
+success_symbol = '[](bold fg:green)'
+error_symbol = '[](bold fg:red)'
+vimcmd_symbol = '[](bold fg:creen)'
+vimcmd_replace_one_symbol = '[](bold fg:purple)'
+vimcmd_replace_symbol = '[](bold fg:purple)'
+vimcmd_visual_symbol = '[](bold fg:lavender)'
