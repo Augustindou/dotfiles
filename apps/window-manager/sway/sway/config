@@ -28,7 +28,7 @@
     bindsym Super+Space exec $menu
     
     # power & lock
-    bindsym Super+l exec swaylock -f -c 000000
+    bindsym Super+Alt+l exec swaylock -f -c 000000
     bindsym Control+Shift+q exec wlogout -b 2
     
     # 1password
@@ -65,8 +65,8 @@
 # Keybindings - Workspaces
 #
     # move to next/previous workspace
-    bindsym Super+Shift+Left workspace prev
-    bindsym Super+Shift+Right workspace next
+    bindsym Super+Alt+Left workspace prev
+    bindsym Super+Alt+Right workspace next
 
     # switch workspaces with super+[0-9]
     bindsym Super+ampersand workspace number 1
