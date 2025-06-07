@@ -1,3 +1,6 @@
+exec swaymsg -t get_outputs
+exec swaymsg -t get_inputs
+
 # 
 # Variables
 # 
