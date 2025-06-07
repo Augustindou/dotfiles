@@ -1,6 +1,6 @@
 if [ "$INSTALLER_OS" = Linux ]; then 
     if command -v apt 2>&1 >/dev/null; then 
-        sudo add-apt-repository ppa:keyd-team/ppa
+        sudo add-apt-repository -y ppa:keyd-team/ppa
     fi
 
     install pacman:keyd apt:keyd
