@@ -16,7 +16,11 @@ if [[ ! -d "$fonts_dir" ]]; then
 fi
 
 for font in "${fonts[@]}"; do
-    if (fc-list | rg "$font Nerd Font") then 
+    if (fc-list | rg "$font Nerd Font") >/dev/null; then 
+        info "Skipping font install: $font"
+    else
+        info "Installing font: $font"
+
         zip_file="${font}.zip"
         download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
         echo "Downloading $download_url"
