@@ -198,6 +198,7 @@
 
     exec swaync
     exec copyq
+    exec waybar
 
     workspace 9
     exec spotify
