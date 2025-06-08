@@ -17,7 +17,7 @@ exec wofi --show drun
 # 
 
     # displays
-    output WL-1 resolution 3840x2160@60 Hz position 3840,0
+    output WL-1 resolution 1920x1080 position 1920,0
 
     # keyboard input
     input type:keyboard {
