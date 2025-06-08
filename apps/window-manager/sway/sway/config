@@ -190,6 +190,22 @@ exec wofi --show drun
     }
 
 #
+# Startup applications
+#
+
+    exec swaync
+    exec copyq
+
+    workspace 9
+    exec spotify
+
+    workspace 2
+    exec $terminal
+
+    workspace 1
+    exec firefox
+
+#
 # Other
 #
 
