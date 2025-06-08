@@ -1,5 +1,5 @@
 if [ "$INSTALLER_OS" = Linux ]; then 
-    install apt:waybar
+    install nix:waybar
 
     install nix:bluetuith
 
