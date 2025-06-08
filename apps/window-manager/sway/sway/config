@@ -2,10 +2,6 @@
 # Variables
 # 
     
-    set $terminal alacritty
-    set $fileManager dolphin
-    set $menu wofi --show drun
-
     include /etc/sway/config-vars.d/*
 
 # 
@@ -53,7 +49,10 @@
     bindsym Control+q kill
     
     # menu
-    bindsym Super+Space exec $menu
+    bindsym Super+Space exec wofi --show drun 
+
+    # terminal
+    bindsym Super+t exec alacritty 
     
     # power & lock
     bindsym Super+Alt+l exec swaylock -f -c 000000
@@ -204,7 +203,7 @@
     exec spotify
 
     workspace 2
-    exec $terminal
+    exec alacritty 
 
     workspace 1
     exec firefox
