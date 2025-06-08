@@ -22,6 +22,15 @@ exec wofi --show drun
     # keyboard input
     input type:keyboard {
         xkb_layout be
+        repeat_rate = 30
+        repeat_delay = 250
+    }
+
+    # trackpad config
+    input type:touchpad {
+       dwt enabled
+       tap enabled
+       natural_scroll enabled
     }
 
     # idle config
