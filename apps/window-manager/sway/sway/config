@@ -22,8 +22,8 @@ exec wofi --show drun
     # keyboard input
     input type:keyboard {
         xkb_layout be
-        repeat_rate = 30
-        repeat_delay = 250
+        repeat_rate 30
+        repeat_delay 250
     }
 
     # trackpad config
