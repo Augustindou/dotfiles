@@ -146,6 +146,8 @@ exec wofi --show drun
 
     floating_modifier Super
 
+    gaps inner 5
+
 #
 # Resize
 #
