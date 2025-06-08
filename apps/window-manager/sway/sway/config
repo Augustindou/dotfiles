@@ -49,7 +49,7 @@
     bindsym Control+q kill
     
     # menu
-    bindsym Super+Space exec wofi --show drun 
+    bindsym Super+space exec wofi --show drun 
 
     # terminal
     bindsym Super+t exec alacritty 
@@ -59,7 +59,7 @@
     bindsym Control+Shift+q exec wlogout -b 2
     
     # 1password
-    bindsym Control+Shift+Space exec 1password --quick-access
+    bindsym Control+Shift+space exec 1password --quick-access
     
     # clipboard manager
     bindsym Control+Shift+o exec copyq menu
@@ -189,7 +189,7 @@
 # Waybar
 #
 
-    bar swaybar_command waybar
+    # bar swaybar_command waybar
 
 #
 # Startup applications
