@@ -1,8 +1,8 @@
 * {
-    font-family: "FiraCode Nerd Font", monospace;
+    font-family: "FiraCode Nerd Font", "Ubuntu Nerd Font", monospace;
     border: none;
     font-size: 14px;
-    color: @text;
+    color: #cdd6f4;
     border-radius: 8px;
 }
 
@@ -14,7 +14,7 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-    background-color: @base;
+    background-color: #1e1e2e;
 }
 
 .modules-right {
@@ -38,11 +38,11 @@ window#waybar {
 
 #workspaces button:hover {
     box-shadow: inherit;
-    background-color: @blue;
+    background-color: #89b4fa;
 }
 
 #workspaces button.active {
-    background-color: @red;
+    background-color: #f38ba8;
 }
 
 #sway,
@@ -62,17 +62,17 @@ window#waybar {
 
 /*-----Indicators----*/
 #pulseaudio.muted {
-    color: @red;
+    color: #f38ba8;
 }
 
 #battery.charging {
-    color: @green;
+    color: #a6e3a1;
 }
 
 #battery.warning:not(.charging) {
-    color: @peach;
+    color: #fab387;
 }
 
 #battery.critical:not(.charging) {
-    color: @red;
+    color: #f38ba8;
 }
