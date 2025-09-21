@@ -1,6 +1,0 @@
-install nix:vim brew:vim
-
-INSTALLER_CONFIG_SOURCE=$INSTALLER_DIRECTORY/vimrc
-INSTALLER_CONFIG_DESTINATION=$HOME/.vimrc
-
-configure
