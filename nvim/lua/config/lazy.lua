@@ -12,7 +12,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({ { import = 'augustindou.plugins' } }, {
+require('lazy').setup({ { import = 'config.plugins' } }, {
     checker = {
         enabled = true,
         notify = false,

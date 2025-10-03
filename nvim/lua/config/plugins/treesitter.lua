@@ -1,10 +1,10 @@
 return {
     'nvim-treesitter/nvim-treesitter',
+    branch = 'master',
     build = ':TSUpdate',
+    lazy = false,
     config = function()
-        local treesitter = require('nvim-treesitter.configs')
-
-        treesitter.setup({
+        require('nvim-treesitter.configs').setup({
             ensure_installed = {
                 'c',
                 'lua',

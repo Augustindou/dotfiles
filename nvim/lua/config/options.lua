@@ -32,4 +32,6 @@ vim.opt.updatetime = 50
 
 vim.opt.exrc = true
 
+vim.opt.winborder = 'rounded'
+
 vim.g.mapleader = ' '
