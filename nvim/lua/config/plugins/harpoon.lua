@@ -55,10 +55,10 @@ return {
         vim.keymap.set('n', "<leader>'", function()
             harpoon:list():select(4)
         end)
-        vim.keymap.set('n', "<leader>(", function()
+        vim.keymap.set('n', '<leader>(', function()
             harpoon:list():select(5)
         end)
-        vim.keymap.set('n', "<leader>§", function()
+        vim.keymap.set('n', '<leader>§', function()
             harpoon:list():select(6)
         end)
     end,

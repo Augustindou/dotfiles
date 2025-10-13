@@ -14,6 +14,7 @@ return {
 
         telescope.setup({
             defaults = {
+                file_ignore_patterns = { 'node_modules/' },
                 path_display = { 'smart' },
                 mappings = {
                     i = {
@@ -28,12 +29,10 @@ return {
 
         local builtin = require('telescope.builtin')
 
-        vim.keymap.set('n', '<leader>ps', 
-            builtin.live_grep, 
-            { desc = 'Telescope live grep' })
+        vim.keymap.set('n', '<leader>ps', builtin.live_grep, { desc = 'Telescope live grep' })
 
-        vim.keymap.set('n', '<C-p>', 
-            function() builtin.find_files({ no_ignore = true }) end, 
-            { desc = 'Telescope files' })
+        vim.keymap.set('n', '<C-p>', function()
+            builtin.find_files({ no_ignore = true })
+        end, { desc = 'Telescope files' })
     end,
 }
