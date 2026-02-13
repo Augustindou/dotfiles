@@ -9,3 +9,14 @@ if command -v lazygit 2>&1 >/dev/null; then
     alias lg="lazygit"
 fi
 
+if command -v claude 2>&1 >/dev/null; then 
+    alias claude="claude -c"
+
+    # "command" tells it to use the original command, not the aliased one
+    alias claude-new="command claude" 
+fi
+
+if command -v nvim 2>&1 >/dev/null; then 
+    alias vim="nvim"
+    alias vi="nvim"
+fi
