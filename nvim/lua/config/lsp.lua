@@ -2,6 +2,7 @@ vim.lsp.enable({
     'lua_ls',
     'kotlin_lsp',
     'tsgo',
+    'basedpyright',
 })
 
 vim.lsp.config('*', {
