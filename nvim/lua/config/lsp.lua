@@ -3,6 +3,7 @@ vim.lsp.enable({
     'kotlin_lsp',
     'tsgo',
     'basedpyright',
+    'rust_analyzer',
 })
 
 vim.lsp.config('*', {
