@@ -23,6 +23,6 @@ return {
             },
         })
 
-        vim.keymap.set('n', '<leader>h', '<CMD>Telescope neoclip<CR>')
+        vim.keymap.set('n', '<leader>c', '<CMD>Telescope neoclip<CR>')
     end,
 }

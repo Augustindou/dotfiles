@@ -39,6 +39,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 vim.lsp.completion.get()
             end)
         end
+
+        -- hover info on ctrl+k
+        vim.keymap.set('n', '<C-k>', vim.lsp.buf.hover, { buffer = event.buf })
+
+        -- close hover window with escape
+        vim.api.nvim_create_autocmd('WinEnter', {
+            callback = function()
+                local win = vim.api.nvim_get_current_win()
+                local config = vim.api.nvim_win_get_config(win)
+                if config.relative ~= '' then
+                    vim.keymap.set('n', '<Esc>', '<cmd>close<CR>', { buffer = vim.api.nvim_win_get_buf(win) })
+                end
+            end,
+        })
     end,
 })
 
