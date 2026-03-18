@@ -17,6 +17,9 @@ return {
                 file_ignore_patterns = {
                     'node_modules/',
                     'target/',
+                    'build/',
+                    '__pycache__/',
+                    '.git/',
                 },
                 path_display = { 'smart' },
                 mappings = {
