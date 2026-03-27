@@ -16,7 +16,15 @@ if command -v claude 2>&1 >/dev/null; then
     alias claude-new="command claude" 
 fi
 
-if command -v nvim 2>&1 >/dev/null; then 
+if command -v nvim 2>&1 >/dev/null; then
     alias vim="nvim"
     alias vi="nvim"
+fi
+
+if command -v starship 2>&1 >/dev/null; then
+    if [ -n "$ZSH_VERSION" ]; then
+        eval "$(starship init zsh)"
+    else
+        eval "$(starship init bash)"
+    fi
 fi
