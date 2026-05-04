@@ -44,6 +44,19 @@
   margin: 0 7.5px;
 }
 
+#battery.critical {
+    color: #FF0000;
+}
+
+#battery.warning {
+    color: #FF5D00;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @foreground;
+}
+
 #tray {
   margin-right: 16px;
 }
