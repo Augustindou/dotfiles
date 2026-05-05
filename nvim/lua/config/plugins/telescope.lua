@@ -37,7 +37,13 @@ return {
 
         vim.keymap.set('n', '<leader>ps', builtin.live_grep, { desc = 'Telescope live grep' })
 
+        -- Windows & Linux ctrl+p
         vim.keymap.set('n', '<C-p>', function()
+            builtin.find_files({ no_ignore = true })
+        end, { desc = 'Telescope files' })
+
+        -- Mac cmd+p
+        vim.keymap.set('n', '<D-p>', function()
             builtin.find_files({ no_ignore = true })
         end, { desc = 'Telescope files' })
     end,
