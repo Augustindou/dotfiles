@@ -1,0 +1,70 @@
+{
+    "profiles": [
+        {
+            "devices": [
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 45913,
+                        "vendor_id": 1133
+                    },
+                    "ignore": false,
+                    "ignore_vendor_events": true
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 50475,
+                        "vendor_id": 1133
+                    },
+                    "ignore_vendor_events": true
+                }
+            ],
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "Right Cmd + 9/0/[/] → { } [ ]",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "9",
+                                    "modifiers": { "mandatory": ["right_command"], "optional": ["any"] }
+                                },
+                                "to": [{ "shell_command": "prev=$(/usr/bin/pbpaste); printf '{' | /usr/bin/pbcopy && /usr/bin/osascript -e 'tell application \"System Events\" to keystroke \"v\" using {command down}' && sleep 0.1 && printf '%s' \"$prev\" | /usr/bin/pbcopy" }]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "0",
+                                    "modifiers": { "mandatory": ["right_command"], "optional": ["any"] }
+                                },
+                                "to": [{ "shell_command": "prev=$(/usr/bin/pbpaste); printf '}' | /usr/bin/pbcopy && /usr/bin/osascript -e 'tell application \"System Events\" to keystroke \"v\" using {command down}' && sleep 0.1 && printf '%s' \"$prev\" | /usr/bin/pbcopy" }]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "open_bracket",
+                                    "modifiers": { "mandatory": ["right_command"], "optional": ["any"] }
+                                },
+                                "to": [{ "shell_command": "prev=$(/usr/bin/pbpaste); printf '[' | /usr/bin/pbcopy && /usr/bin/osascript -e 'tell application \"System Events\" to keystroke \"v\" using {command down}' && sleep 0.1 && printf '%s' \"$prev\" | /usr/bin/pbcopy" }]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "close_bracket",
+                                    "modifiers": { "mandatory": ["right_command"], "optional": ["any"] }
+                                },
+                                "to": [{ "shell_command": "prev=$(/usr/bin/pbpaste); printf ']' | /usr/bin/pbcopy && /usr/bin/osascript -e 'tell application \"System Events\" to keystroke \"v\" using {command down}' && sleep 0.1 && printf '%s' \"$prev\" | /usr/bin/pbcopy" }]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "name": "Default profile",
+            "selected": true,
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+        }
+    ]
+}
