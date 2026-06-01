@@ -30,5 +30,11 @@ return {
         code = {
             style = 'full',
         },
+        html = {
+            comment = {
+                conceal = false,
+                highlight = 'RenderMarkdownComment',
+            },
+        },
     },
 }
