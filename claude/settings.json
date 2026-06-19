@@ -7,7 +7,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cmd=$(jq -r '.tool_input.command // \"\"'); if printf '%s' \"$cmd\" | grep -qE '(^|[[:space:]]|&&|;|\\|\\|)[[:space:]]*cd[[:space:]]+[^&;|]+[[:space:]]*(&&|;)[[:space:]]*git([[:space:]]|$)'; then printf '%s\\n' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Refusing `cd ... && git ...`. Git walks up from cwd to find the repo root, so it works from any subdirectory. Run the git command directly. You should not need git to operate on a different repo, so you should not need to use `git -C <path> ...` either.\"}}'; fi"
+            "command": "cmd=$(jq -r '.tool_input.command // \"\"'); if printf '%s' \"$cmd\" | grep -qE '(^|[[:space:]]|&&|;|\\|\\|)[[:space:]]*cd[[:space:]]+[^&;|]+[[:space:]]*(&&|;)[[:space:]]*git([[:space:]]|$)'; then printf '%s\\n' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Refusing `cd ... && git ...`. You are already in the right folder for git: it walks up from the current directory to find the repo root, so git works from any subdirectory. Drop the `cd` and run the git command directly.\"}}'; fi"
+          },
+          {
+            "type": "command",
+            "command": "cmd=$(jq -r '.tool_input.command // \"\"'); if printf '%s' \"$cmd\" | grep -qE '(^|[[:space:]]|&&|;|\\|\\|)[[:space:]]*git[[:space:]]+-C([[:space:]]|/)'; then printf '%s\\n' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Refusing `git -C <path> ...`. You are already in the right folder for git, so there is no need to point it at another path. Drop the `-C <path>` and run the git command directly.\"}}'; fi"
           }
         ]
       }
