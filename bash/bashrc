@@ -21,19 +21,6 @@ if command -v nvim 2>&1 >/dev/null; then
     alias vi="nvim"
 fi
 
-if command -v zoxide 2>&1 >/dev/null; then
-    if [ -n "$ZSH_VERSION" ]; then
-        eval "$(zoxide init zsh)"
-    else
-        eval "$(zoxide init bash)"
-    fi
-
-    if command -v z 2>&1 >/dev/null; then
-        alias cd="z"
-        alias zz="z -"
-    fi
-fi
-
 if command -v rip 2>&1 >/dev/null; then
     alias trash="rip"
 fi
@@ -43,5 +30,18 @@ if command -v starship 2>&1 >/dev/null; then
         eval "$(starship init zsh)"
     else
         eval "$(starship init bash)"
+    fi
+fi
+
+if command -v zoxide 2>&1 >/dev/null; then
+    if command -v z 2>&1 >/dev/null; then
+        alias cd="z"
+        alias zz="z -"
+    fi
+
+    if [ -n "$ZSH_VERSION" ]; then
+        eval "$(zoxide init zsh)"
+    else
+        eval "$(zoxide init bash)"
     fi
 fi
