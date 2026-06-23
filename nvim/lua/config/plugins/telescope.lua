@@ -1,6 +1,7 @@
 return {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+    -- master tracks the built-in vim.treesitter API (needed for nvim-treesitter
+    -- main); the old 0.1.x branch still calls the removed nvim-treesitter.parsers
     dependencies = {
         'nvim-lua/plenary.nvim',
         {

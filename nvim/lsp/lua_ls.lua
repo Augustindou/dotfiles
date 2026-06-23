@@ -10,6 +10,15 @@ return {
             diagnostics = {
                 globals = { 'vim' },
             },
+            workspace = {
+                -- load the Neovim runtime so `vim` and the full API
+                -- (vim.api/fn/lsp/...) are recognized with completion + types
+                library = {
+                    vim.env.VIMRUNTIME,
+                    '${3rd}/luv/library',
+                },
+                checkThirdParty = false,
+            },
         },
     },
 }
