@@ -40,30 +40,36 @@ vim.api.nvim_create_autocmd('LspAttach', {
             end)
         end
 
-        -- hover info on ctrl+k
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.hover, { buffer = event.buf })
-
         -- go to definition
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = event.buf })
-
-        -- close hover window with escape
-        vim.api.nvim_create_autocmd('WinEnter', {
-            callback = function()
-                local win = vim.api.nvim_get_current_win()
-                local config = vim.api.nvim_win_get_config(win)
-                if config.relative ~= '' then
-                    vim.keymap.set('n', '<Esc>', '<cmd>close<CR>', { buffer = vim.api.nvim_win_get_buf(win) })
-                end
-            end,
-        })
     end,
 })
 
+-- close floating windows (e.g. LSP hover from K) with escape, even while the
+-- cursor is still in the source buffer, so "K then <Esc>" dismisses the popup
+vim.keymap.set('n', '<Esc>', function()
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+        if vim.api.nvim_win_get_config(win).relative ~= '' then
+            pcall(vim.api.nvim_win_close, win, false)
+        end
+    end
+end)
+
 vim.diagnostic.config({
-    virtual_lines = {
-        current_line = true,
-    },
+    -- virtual_lines = {
+    --     current_line = true,
+    -- },
+    virtual_text = true,
 })
+
+-- send diagnostics to the quickfix list
+vim.keymap.set('n', '<leader>qe', function()
+    vim.diagnostic.setqflist({ severity = vim.diagnostic.severity.ERROR })
+end, { desc = 'Quickfix: errors only' })
+
+vim.keymap.set('n', '<leader>qw', function()
+    vim.diagnostic.setqflist()
+end, { desc = 'Quickfix: all diagnostics' })
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('my.lsp', {}),

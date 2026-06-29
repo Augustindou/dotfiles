@@ -26,5 +26,9 @@ vim.keymap.set('v', '<leader>d', [["_d]])
 vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
 vim.keymap.set('n', '<leader>Y', [["+Y]])
 
+-- Quickfix list navigation (centered)
+vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
+vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
+
 -- Other
 vim.keymap.set('n', 'Q', '<nop>')
