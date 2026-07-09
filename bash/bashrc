@@ -45,3 +45,89 @@ if command -v zoxide 2>&1 >/dev/null; then
         eval "$(zoxide init bash)"
     fi
 fi
+
+pycter-branch() {
+  local branch="$1"
+  # Change this to "opencode" if you want pycter-branch to launch OpenCode by default.
+  local default_pycter_branch_command="opencode"
+  local command_to_open="${2:-$default_pycter_branch_command}"
+
+  if [ -z "$branch" ]; then
+    echo "usage: pycter-branch <branch> [claude|opencode]" >&2
+    return 2
+  fi
+  case "$command_to_open" in
+    claude|opencode) ;;
+    *)
+      echo "usage: pycter-branch <branch> [claude|opencode]" >&2
+      return 2
+      ;;
+  esac
+
+  local main="$HOME/Documents/pycter"
+  local sanitized="${branch//\//-}"
+  local wt="$HOME/Documents/pycter-${sanitized}"
+  local main_ns="$HOME/.claude/projects/${main//\//-}"
+  local wt_ns="$HOME/.claude/projects/${wt//\//-}"
+
+  if [ ! -d "$main/.git" ] && [ ! -f "$main/.git" ]; then
+    echo "pycter-branch: main checkout not found at $main" >&2
+    return 1
+  fi
+  if ! git -C "$main" fetch origin; then
+    echo "pycter-branch: failed to fetch origin" >&2
+    return 1
+  fi
+  if [ -e "$wt" ]; then
+    echo "pycter-branch: worktree path already exists: $wt" >&2
+    return 1
+  fi
+  if [ "$command_to_open" = "claude" ]; then
+    if [ ! -d "$main_ns" ]; then
+      echo "pycter-branch: main Claude memory dir missing: $main_ns" >&2
+      return 1
+    fi
+    if [ ! -f "$main/.claude/settings.local.json" ]; then
+      echo "pycter-branch: main .claude/settings.local.json missing" >&2
+      return 1
+    fi
+    if [ -L "$wt_ns" ]; then
+      if [ "$(readlink "$wt_ns")" != "$main_ns" ]; then
+        echo "pycter-branch: $wt_ns is a symlink to an unexpected target" >&2
+        return 1
+      fi
+    elif [ -e "$wt_ns" ]; then
+      echo "pycter-branch: target memory path already exists and is not our symlink: $wt_ns" >&2
+      return 1
+    fi
+  fi
+
+  if git -C "$main" show-ref --verify --quiet "refs/heads/$branch"; then
+    git -C "$main" worktree add "$wt" "$branch" || return 1
+    if git -C "$main" show-ref --verify --quiet "refs/remotes/origin/$branch"; then
+      git -C "$wt" pull --ff-only origin "$branch" || return 1
+    fi
+  elif git -C "$main" show-ref --verify --quiet "refs/remotes/origin/$branch"; then
+    git -C "$main" worktree add "$wt" -b "$branch" --track "origin/$branch" || return 1
+  else
+    git -C "$main" worktree add "$wt" -b "$branch" --no-track origin/dev || return 1
+  fi
+  if [ "$command_to_open" = "claude" ]; then
+    [ -L "$wt_ns" ] || ln -s "$main_ns" "$wt_ns" || return 1
+    mkdir -p "$wt/.claude" || return 1
+    ln -s "$main/.claude/settings.local.json" "$wt/.claude/settings.local.json" || return 1
+  fi
+
+  cd "$wt" || return 1
+  if [ -n "$EDITOR" ]; then
+    if command -v xdg-terminal-exec 2>&1 >/dev/null; then
+      xdg-terminal-exec --dir="$wt" sh -lc 'exec ${EDITOR}' >/dev/null 2>&1 &
+    else
+      echo "pycter-branch: xdg-terminal-exec not found; skipping editor terminal" >&2
+    fi
+  else
+    echo "pycter-branch: EDITOR is not set; skipping editor terminal" >&2
+  fi
+
+  "$command_to_open"
+}
