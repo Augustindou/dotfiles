@@ -1,0 +1,49 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "permission": {
+    "edit": "ask",
+    "external_directory": {
+        "$HOME/.config/opencode/**": "allow"
+    },
+    "bash": {
+      "*": "ask",
+
+      "ls *": "allow",
+      "grep *": "allow",
+      "tail *": "allow",
+      "head *": "allow",
+      "echo *": "allow",
+
+      "git status *": "allow",
+      "git diff *": "allow",
+      "git log *": "allow",
+      "git show *": "allow",
+      "git grep *": "allow",
+      "git ls-files *": "allow",
+      "git blame *": "allow",
+      "git branch --show-current": "allow",
+
+      "cargo check *": "allow",
+      "cargo test *": "allow",
+      "cargo build *": "allow",
+      "cargo fmt *": "allow",
+      "cargo clippy *": "allow",
+
+      "npm run lint *": "allow",
+
+      "php -l *": "allow",
+
+      "./gradlew *": "allow",
+
+      "swift build *": "allow",
+      "swift test *": "allow",
+      "swift format *": "allow",
+
+      "source .venv/bin/activate": "allow",
+      "python -m py_compile *": "allow",
+      ".venv/bin/pytest *": "allow",
+      "pytest *": "allow"
+    }
+  }
+}

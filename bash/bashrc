@@ -16,6 +16,10 @@ if command -v claude 2>&1 >/dev/null; then
     alias claude-new="command claude" 
 fi
 
+if command -v opencode 2>&1 >/dev/null; then 
+    alias oc="opencode"
+fi
+
 if command -v nvim 2>&1 >/dev/null; then
     alias vim="nvim"
     alias vi="nvim"
