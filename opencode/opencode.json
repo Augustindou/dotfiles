@@ -23,6 +23,8 @@
       "git ls-files *": "allow",
       "git blame *": "allow",
       "git branch --show-current": "allow",
+      "git branch --all": "allow",
+      "git branch --all --no-color": "allow",
 
       "cargo check *": "allow",
       "cargo test *": "allow",
@@ -31,6 +33,7 @@
       "cargo clippy *": "allow",
 
       "npm run lint *": "allow",
+      "npm run build *": "allow",
 
       "php -l *": "allow",
 
