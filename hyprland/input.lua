@@ -53,6 +53,9 @@ hl.config({
 	},
 })
 
+hl.env("XCURSOR_THEME", "rose-pine")
+hl.env("HYPRCURSOR_THEME", "rose-pine-hyprcursor")
+
 -- App-specific touchpad scroll speeds.
 -- o.window("(Alacritty|kitty|foot)", { scroll_touchpad = 1.5 })
 -- o.window("com.mitchellh.ghostty", { scroll_touchpad = 0.2 })
