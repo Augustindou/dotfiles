@@ -12,10 +12,6 @@
           {
             "type": "command",
             "command": "cmd=$(jq -r '.tool_input.command // \"\"'); if printf '%s' \"$cmd\" | grep -qE '(^|[[:space:]]|&&|;|\\|\\|)[[:space:]]*git[[:space:]]+-C([[:space:]]|/)'; then printf '%s\\n' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Refusing `git -C <path> ...`. You are already in the right folder for git, so there is no need to point it at another path. Drop the `-C <path>` and run the git command directly.\"}}'; fi"
-          },
-          {
-            "type": "command",
-            "command": "cmd=$(jq -r '.tool_input.command // \"\"'); if printf '%s' \"$cmd\" | grep -qE '(^|[^-=<>])>>?[[:space:]]*[^&=[:space:]]'; then printf '%s\\n' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"ask\",\"permissionDecisionReason\":\"This command redirects output into a file. Allow rules such as Bash(echo:*) or Bash(git log:*) match only the command prefix, so a redirection would otherwise write files with no prompt. Confirm the target path, or use the Write/Edit tools instead.\"}}'; fi"
           }
         ]
       }
