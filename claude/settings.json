@@ -12,6 +12,10 @@
           {
             "type": "command",
             "command": "cmd=$(jq -r '.tool_input.command // \"\"'); if printf '%s' \"$cmd\" | grep -qE '(^|[[:space:]]|&&|;|\\|\\|)[[:space:]]*git[[:space:]]+-C([[:space:]]|/)'; then printf '%s\\n' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Refusing `git -C <path> ...`. You are already in the right folder for git, so there is no need to point it at another path. Drop the `-C <path>` and run the git command directly.\"}}'; fi"
+          },
+          {
+            "type": "command",
+            "command": "cmd=$(jq -r '.tool_input.command // \"\"'); if printf '%s' \"$cmd\" | grep -qE '(^|[^-=<>])>>?[[:space:]]*[^&=[:space:]]'; then printf '%s\\n' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"ask\",\"permissionDecisionReason\":\"This command redirects output into a file. Allow rules such as Bash(echo:*) or Bash(git log:*) match only the command prefix, so a redirection would otherwise write files with no prompt. Confirm the target path, or use the Write/Edit tools instead.\"}}'; fi"
           }
         ]
       }
@@ -29,5 +33,40 @@
     "swift-lsp@claude-plugins-official": true
   },
   "effortLevel": "xhigh",
-  "tui": "fullscreen"
+  "tui": "fullscreen",
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(tail:*)",
+      "Bash(head:*)",
+      "Bash(echo:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git grep:*)",
+      "Bash(git ls-files:*)",
+      "Bash(git blame:*)",
+      "Bash(git merge-base:*)",
+      "Bash(git branch --show-current)",
+      "Bash(git branch --all)",
+      "Bash(git branch --all --no-color)",
+      "Bash(cargo check:*)",
+      "Bash(cargo test:*)",
+      "Bash(cargo build:*)",
+      "Bash(cargo fmt:*)",
+      "Bash(cargo clippy:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm run build:*)",
+      "Bash(php -l:*)",
+      "Bash(./gradlew:*)",
+      "Bash(swift build:*)",
+      "Bash(swift test:*)",
+      "Bash(swift format:*)",
+      "Bash(python -m py_compile:*)",
+      "Bash(.venv/bin/pytest:*)",
+      "Bash(pytest:*)"
+    ]
+  }
 }
