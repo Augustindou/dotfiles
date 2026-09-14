@@ -1,6 +1,7 @@
 {
   "permissions": {
     "allow": [
+      "Read(~/.claude/settings.json)",
       "Bash(ls:*)",
       "Bash(grep:*)",
       "Bash(tail:*)",
