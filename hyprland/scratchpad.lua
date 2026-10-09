@@ -1,4 +1,4 @@
-local seed = "[workspace special:scratchpad2 silent] omarchy-launch-terminal"
+local seed = "[workspace special:scratchpad silent] omarchy-launch-terminal"
 
 hl.config({
 	decoration = {

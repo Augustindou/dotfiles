@@ -21,6 +21,7 @@ return {
                     'build/',
                     '__pycache__/',
                     '.git/',
+                    'third_party/',
                 },
                 path_display = { 'smart' },
                 mappings = {
