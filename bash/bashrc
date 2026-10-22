@@ -46,7 +46,7 @@ fi
 pycter-branch() {
   local branch="$1"
   # Change this to "opencode" if you want pycter-branch to launch OpenCode by default.
-  local default_pycter_branch_command="opencode"
+  local default_pycter_branch_command="claude"
   local command_to_open="${2:-$default_pycter_branch_command}"
 
   if [ -z "$branch" ]; then
@@ -118,7 +118,7 @@ pycter-branch() {
   cd "$wt" || return 1
   if [ -n "$EDITOR" ]; then
     if command -v xdg-terminal-exec 2>&1 >/dev/null; then
-      xdg-terminal-exec --dir="$wt" sh -lc 'exec ${EDITOR}' >/dev/null 2>&1 &
+      xdg-terminal-exec --dir="$wt" sh -lc 'cd "$1" && exec ${EDITOR} .' sh "$wt" >/dev/null 2>&1 &
     else
       echo "pycter-branch: xdg-terminal-exec not found; skipping editor terminal" >&2
     fi

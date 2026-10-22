@@ -53,7 +53,7 @@ hl.config({
 	},
 })
 
-hl.env("XCURSOR_THEME", "rose-pine")
+hl.env("XCURSOR_THEME", "BreezeX-RosePine-Linux")
 hl.env("HYPRCURSOR_THEME", "rose-pine-hyprcursor")
 
 -- App-specific touchpad scroll speeds.
