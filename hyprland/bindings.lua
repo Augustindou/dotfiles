@@ -1,5 +1,5 @@
--- Keep only your personal keybinding overrides here. Add new bindings or
--- unbind defaults before replacing them.
+-- Keep only your personal keybinding overrides here. Add new bindings with
+-- o.bind or replace defaults with o.rebind.
 
 -- See current bindings and descriptions:
 --   omarchy menu keybindings --print
@@ -15,21 +15,19 @@
 -- Add a new binding.
 -- o.bind("SUPER + SHIFT + R", "SSH", "alacritty -e ssh your-server")
 
--- Change an existing binding by unbinding it first, then binding the key again.
--- This example changes SUPER+SPACE from the launcher to the Omarchy root menu.
--- hl.unbind("SUPER + SPACE")
--- o.bind("SUPER + SPACE", "Omarchy menu", "omarchy-menu toggle root")
+-- Change an existing binding. o.rebind takes the same arguments as o.bind.
+-- This example replaces the default file manager with Flea.
+-- o.rebind("SUPER + SHIFT + F", "File manager", { launch = "flea" })
 
 -- Disable a default binding without replacing it.
 -- hl.unbind("SUPER + SHIFT + B")
 
 -- Logitech MX Keys examples:
--- o.bind("SUPER + SHIFT + S", nil, "omarchy-capture-screenshot")
 -- o.bind("SUPER + H", nil, "voxtype record toggle")
--- o.bind("SUPER + PERIOD", nil, "omarchy-shell shell toggle omarchy.emojis")
+-- o.bind("SUPER + PERIOD", nil, { panel = "omarchy.emojis" })
 
 -- Personal shortcuts migrated from the pre-Quattro configuration.
-o.bind("ALT + SPACE", "Omarchy menu", "omarchy-menu toggle")
+o.rebind("ALT + SPACE", "Omarchy menu", "omarchy-menu toggle")
 hl.unbind("SUPER + SHIFT + O")
 o.bind("SUPER + SHIFT + O", "Clipboard history", "omarchy-shell shell toggle omarchy.clipboard")
 o.bind("ALT + SHIFT + O", "Clipboard history", "omarchy-shell shell toggle omarchy.clipboard")
@@ -44,7 +42,7 @@ o.bind("ALT + SHIFT + SPACE", "1Password Quick Access", "1password --quick-acces
 hl.unbind("SUPER + W")
 hl.unbind("SUPER + SHIFT + W")
 hl.unbind("CTRL + ALT + DELETE")
-o.bind("SUPER + Q", "Close window", hl.dsp.window.close())
+o.rebind("SUPER + Q", "Close window", hl.dsp.window.close())
 o.bind("ALT + Q", "Close window", hl.dsp.window.close())
 
 hl.unbind("SUPER + TAB")
